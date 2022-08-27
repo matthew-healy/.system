@@ -1,11 +1,46 @@
 {
-  description = "A very basic flake";
+  description = "My system configuration";
 
-  outputs = { self, nixpkgs }: {
+  inputs = {
+    nixpkgs = {
+      type  = "github";
+      owner = "NixOS";
+      repo  = "nixpkgs";
+      ref   = "nixos-22.05";
+    };
 
-    packages.x86_64-linux.hello = nixpkgs.legacyPackages.x86_64-linux.hello;
+    home-manager = {
+      type  = "github";
+      owner = "nix-community";
+      repo  = "home-manager";
+      ref   = "release-22.05";
 
-    defaultPackage.x86_64-linux = self.packages.x86_64-linux.hello;
-
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
+
+  outputs = { self, nixpkgs, home-manager }:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      lib = nixpkgs.lib;
+    in {
+      nixosConfigurations = {
+        foundation = lib.nixosSystem {
+          inherit system;
+
+          modules = [
+            ./configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+            } 
+          ];
+        };
+      };
+    };
 }
