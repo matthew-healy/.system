@@ -39,9 +39,7 @@
     pulse.enable = true;
   };
 
-  nix.extraOptions = ''
-    experimental-features = nix-command flakes
-  '';
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   users.users.matthew = {
     isNormalUser = true;
