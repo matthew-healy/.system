@@ -39,6 +39,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
             }
+            ./home/config.nix
             ./fonts.nix
           ];
         };
