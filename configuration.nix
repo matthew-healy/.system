@@ -51,6 +51,8 @@
       _1password-gui
       firefox
       gnome.gnome-sound-recorder
+      gnome.gnome-todo
+      gnome.pomodoro
       slack
     ];
   };
