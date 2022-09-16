@@ -33,7 +33,7 @@
           inherit system;
 
           modules = [
-            ./hardware/config.nix
+            ./hardware/foundation.nix
             ./configuration.nix
             home-manager.nixosModules.home-manager
             {
