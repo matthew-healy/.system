@@ -14,6 +14,8 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  virtualisation.docker.enable = true;
+
   services.xserver = {
     layout = "us,gb";
     xkbVariant = "";
@@ -44,7 +46,7 @@
   users.users.matthew = {
     isNormalUser = true;
     description = "Matthew Healy";
-    extraGroups = [ "networkmanager" "wheel" "audio" ];
+    extraGroups = [ "audio" "docker" "networkmanager" "wheel" ];
     packages = with pkgs; [
       _1password-gui
       firefox
@@ -59,6 +61,7 @@
 
   environment.systemPackages = with pkgs; [
     direnv
+    docker
     fprintd
     git
     keychain
