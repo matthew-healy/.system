@@ -7,6 +7,7 @@
       "editor.fontFamily" = "'Fira Code', 'monospace', monospace";
       "editor.fontLigatures" = true;
       "editor.fontSize" = 16;
+      "editor.rulers" = [ 80 120 ];
       "editor.tabSize" = 2;
       "explorer.confirmDragAndDrop" = false;
       "haskell.manageHLS" = "PATH";
