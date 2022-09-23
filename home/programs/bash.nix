@@ -20,7 +20,7 @@
 
     bashrcExtra = ''
       if [[ -n "$IN_NIX_SHELL" ]]; then
-        export PS1="\\033[01;38;5;182m[\u in nix-shell:\w]$\033[0m "
+        export PS1="\n\\033[01;38;5;182m[\u in nix-shell:\w]$\033[0m "
       fi
 
       function mkd() {
