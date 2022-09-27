@@ -11,7 +11,7 @@
       squash = "rebase -i --autosquash";
       debranch =
         let
-          allBranches = ''git for-each-ref --format="%(refname:short)"'';
+          allBranches = ''git for-each-ref --format="%(refname:short)" refs/heads/'';
           filterCommonMains = ''egrep -v "(^\*|main|master|trunk|dev|develop$)"'';
           filterCurrentBranch = ''grep -v $(git branch --show-current)'';
           deleteRemainingBranches = ''xargs git branch -D'';
