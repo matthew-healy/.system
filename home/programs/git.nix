@@ -6,21 +6,20 @@
     userName = "Matthew Healy";
     userEmail = "matthew.healy@tweag.io";
 
-    aliases = {
-      last = "log -1 HEAD";
-      squash = "rebase -i --autosquash";
-      debranch =
-        let
-          allBranches = ''git for-each-ref --format="%(refname:short)" refs/heads/'';
-          filterCommonMains = ''egrep -v "(^\*|main|master|trunk|dev|develop$)"'';
-          filterCurrentBranch = ''grep -v $(git branch --show-current)'';
-          deleteRemainingBranches = ''xargs git branch -D'';
-        in 
-          "!" + allBranches         + " | "
-              + filterCommonMains   + " | "
-              + filterCurrentBranch + " | "
-              + deleteRemainingBranches;
-    };
+    aliases =
+      let
+        bashExpr = e: "!" + e;
+        bashPipeline = es: bashExpr (builtins.concatStringsSep " | " es);
+      in {
+        last = "log -1 HEAD";
+        squash = "rebase -i --autosquash";
+        debranch = bashPipeline [
+          ''git for-each-ref --format="%(refname:short)" refs/heads/''
+          ''egrep -v "(^\*|main|master|trunk|dev|develop$)"''
+          ''grep -v $(git branch --show-current)''
+          ''xargs git branch -D''
+        ];
+      };
 
     extraConfig = {
       apply.whitespace = "fix";
