@@ -46,6 +46,18 @@
         " treat .md files as markdown
         autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
       endif
+
+      " because why not write lua inside vimscript inside nix?
+      lua << EOF
+        require("nvim-tree").setup({
+          view = {
+            width = 30,
+            hide_root_folder = true,
+          },
+        })
+
+        vim.keymap.set('n', '<C-l>', ':NvimTreeToggle<CR>')
+      EOF
     '';
 
     plugins = with pkgs.vimPlugins; [
@@ -53,6 +65,8 @@
       glow-nvim
       # file explorer
       nvim-tree-lua
+      nvim-web-devicons
+      # nix support
       vim-nix
       # automatically toggles between relative & actual line numbers
       vim-numbertoggle
