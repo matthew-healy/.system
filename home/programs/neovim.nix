@@ -20,6 +20,7 @@
       set number relativenumber
       syntax on
       set cursorline
+      set colorcolumn=80
 
       " search experience
       set hlsearch
@@ -47,6 +48,10 @@
     '';
 
     plugins = with pkgs.vimPlugins; [
+      # markdown preview
+      glow-nvim
+      # file explorer
+      nvim-tree-lua
       vim-nix
       # automatically toggles between relative & actual line numbers
       vim-numbertoggle
