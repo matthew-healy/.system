@@ -20,7 +20,8 @@
       set number relativenumber
       syntax on
       set cursorline
-      set colorcolumn=80
+      let &colorcolumn="80,120"
+      highlight ColorColumn ctermbg=0 guibg=lightgrey
 
       " search experience
       set hlsearch
