@@ -19,9 +19,19 @@
     '';
 
     bashrcExtra = ''
-      if [[ -n "$IN_NIX_SHELL" ]]; then
-        export PS1="\n\\033[01;38;5;182m[\u in nix-shell:\w]$\033[0m "
-      fi
+      PS1="\n";
+      PS1+="\[\e[0;1;38;5;153m\][";   # '[' in bold light blue
+      PS1+="\[\e[0;38;5;225m\]\A";    # the time in pink
+      PS1+="\[\e[0;1;38;5;153m\]]";   # ']' in bold light blue
+      PS1+=" ";
+      PS1+="\[\e[0;1;38;5;225m\]\u "; # username in bold pink
+      PS1+="\[\e[0m\]at ";            # 'at' in white
+      PS1+="\[\e[0;1;38;5;153m\]\h "; # hostname in bold light blue
+      PS1+="\[\e[0m\]in ";            # 'in' in white
+      PS1+="\[\e[0;1;38;5;158m\]\w "; # pwd in bold mint green
+      PS1+="\[\e[0;1;38;5;225m\]λ ";  # a pink lambda
+      PS1+='\[\e[0m\]';               # reset colours to white
+      export PS1;
 
       function mkd() {
         mkdir -p "$1" && cd "$_";
