@@ -93,6 +93,9 @@
       # reset colours to white
       PS1+='\[\e[0m\]';
       export PS1;
+
+      PS2="\[\e[0;1;38;5;153m\]-> \[\e[0m\]";
+      export PS2;
     '';
   };
 }
