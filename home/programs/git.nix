@@ -13,7 +13,6 @@
         bashPipeline = es: bashExpr (builtins.concatStringsSep " | " es);
       in {
         last = "log -1 HEAD";
-        squash = "rebase -i --autosquash";
         debranch = bashPipeline [
           ''git for-each-ref --format="%(refname:short)" refs/heads/''
           ''egrep -v "(^\*|main|master|trunk|dev|develop$)"''
