@@ -2,6 +2,7 @@
 {
   git = {
     enable = true;
+    lfs.enable = true;
 
     userName = "Matthew Healy";
     userEmail = "matthew.healy@tweag.io";
