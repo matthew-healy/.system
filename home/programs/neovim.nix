@@ -38,6 +38,9 @@
 
       set shiftwidth=2
 
+      " Start scrolling 10 lines from end
+      set scrolloff=10
+
       if has("autocmd")
         " enable file type detection
         filetype on
