@@ -3,6 +3,7 @@
   git = {
     enable = true;
     lfs.enable = true;
+    difftastic.enable = true;
 
     userName = "Matthew Healy";
     userEmail = "matthew.healy@tweag.io";
