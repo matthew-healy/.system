@@ -14,6 +14,8 @@ vim.opt.relativenumber = true
 vim.opt.cursorline = true
 vim.opt.colorcolumn = "80,120"
 vim.api.nvim_set_hl(0, "ColorColumn", { ctermbg = 0, bg = LightGrey })
+-- 24-bit colour, required by nvim-notify
+vim.opt.termguicolors = true;
 
 -- search experience
 vim.opt.hlsearch = true
@@ -45,6 +47,37 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
   pattern = "*.md",
   command = "setlocal filetype=markdown"
 })
+
+-- install packer dependencies
+require('packer').startup(function(use)
+  use({
+    'folke/tokyonight.nvim',
+    config = function()
+      require("tokyonight").setup({
+        style = "storm",
+        transparent = true,
+        styles = {
+          sidebars = 'none',
+          floats = 'none'
+        }
+      })
+    end
+  })
+
+  use({
+    "folke/noice.nvim",
+    event = "VimEnter",
+    config = function()
+      require("noice").setup()
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    }
+  })
+end)
+
+vim.cmd[[colorscheme tokyonight]]
 
 -- nvim-tree
 require("nvim-tree").setup({
