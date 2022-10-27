@@ -31,6 +31,7 @@ vim.opt.title = true
 vim.opt.showcmd = true
 
 vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
 
 -- start scrolling 10 lines from end
 vim.opt.scrolloff = 10
