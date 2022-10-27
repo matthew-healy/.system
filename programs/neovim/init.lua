@@ -71,6 +71,9 @@ require('packer').startup(function(use)
     "folke/noice.nvim",
     event = "VimEnter",
     config = function()
+      require('notify').setup({
+        background_colour = "#000000"
+      })
       require("noice").setup()
     end,
     requires = {
