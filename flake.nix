@@ -40,7 +40,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
             }
-            ./home/config.nix
+            ./home.nix
             ./fonts.nix
           ];
         };
