@@ -13,8 +13,6 @@
     '';
 
     plugins = with pkgs.vimPlugins; [
-      # markdown preview
-      glow-nvim
       # for plugins that aren't in nixpkgs
       packer-nvim
       # nix support
