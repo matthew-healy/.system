@@ -11,6 +11,7 @@
 
     shellAliases = {
       ".." = "cd ..";
+      "cat" = "bat";
     };
 
     profileExtra = builtins.readFile ./bash/profile.sh;
