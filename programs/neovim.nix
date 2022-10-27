@@ -15,8 +15,6 @@
     plugins = with pkgs.vimPlugins; [
       # for plugins that aren't in nixpkgs
       packer-nvim
-      # nix support
-      vim-nix
       # automatically toggles between relative & actual line numbers
       vim-numbertoggle
     ];

@@ -50,6 +50,8 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
 
 -- install packer dependencies
 require('packer').startup(function(use)
+  use 'LnL7/vim-nix'
+
   use({
     'folke/tokyonight.nvim',
     config = function()
