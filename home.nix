@@ -3,6 +3,8 @@
   home-manager.users.matthew = { pkgs, ... }: {
     services.gnome-keyring.enable = true;
 
+    home.stateVersion = "22.05";
+
     programs = 
       let
         programsDir = ./programs;
