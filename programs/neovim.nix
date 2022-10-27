@@ -15,9 +15,6 @@
     plugins = with pkgs.vimPlugins; [
       # markdown preview
       glow-nvim
-      # file explorer
-      nvim-tree-lua
-      nvim-web-devicons
       # for plugins that aren't in nixpkgs
       packer-nvim
       # nix support

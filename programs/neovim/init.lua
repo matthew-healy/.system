@@ -61,6 +61,7 @@ require('packer').startup(function(use)
           floats = 'none'
         }
       })
+      vim.cmd[[colorscheme tokyonight]]
     end
   })
 
@@ -75,16 +76,21 @@ require('packer').startup(function(use)
       "rcarriga/nvim-notify",
     }
   })
+
+  use({
+    'nvim-tree/nvim-tree.lua',
+    config = function()
+      require("nvim-tree").setup({
+        view = {
+          width = 30,
+          hide_root_folder = true,
+        },
+      })
+      vim.keymap.set('n', '<C-l>', ':NvimTreeToggle<CR>')
+    end,
+    requires = {
+      'nvim-tree/nvim-web-devicons',
+    },
+  })
 end)
 
-vim.cmd[[colorscheme tokyonight]]
-
--- nvim-tree
-require("nvim-tree").setup({
-  view = {
-    width = 30,
-    hide_root_folder = true,
-  },
-})
-
-vim.keymap.set('n', '<C-l>', ':NvimTreeToggle<CR>')
