@@ -13,8 +13,7 @@
       ".." = "cd ..";
       "cat" = "bat";
     };
-
-    profileExtra = builtins.readFile ./bash/profile.sh;
-    bashrcExtra = builtins.readFile ./bash/rc.sh;
+    profileExtra = builtins.readFile ./bash/.profile;
+    bashrcExtra = builtins.readFile ./bash/.bashrc;
   };
 }

@@ -1,11 +1,16 @@
 { home-manager, lib, ... }:
 {
-  home-manager.users.matthew = { pkgs, config, ... }: {
+  home-manager.users.matthew = { pkgs, config, ... }:
+  let
+    symlinkFile = config.lib.file.mkOutOfStoreSymlink;
+  in
+  {
     services.gnome-keyring.enable = true;
 
     home.stateVersion = "22.05";
 
-    home.file.".gitignore".source = config.lib.file.mkOutOfStoreSymlink ./programs/git/ignore;
+    home.file.".gitignore".source = symlinkFile ./dotfiles/.global.gitignore;
+    home.file.".config/nvim/init.lua".source = symlinkFile ./dotfiles/init.lua;
 
     programs = 
       let
