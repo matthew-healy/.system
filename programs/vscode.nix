@@ -10,6 +10,8 @@
       "editor.rulers" = [ 80 120 ];
       "editor.tabSize" = 2;
       "explorer.confirmDragAndDrop" = false;
+      "files.autoSave" = "afterDelay";
+      "files.autoSaveDelay" = 1000;
       "haskell.manageHLS" = "PATH";
       "telemetry.telemetryLevel" = "off";
       "workbench.colorTheme" = "Pink Cat Boo";
