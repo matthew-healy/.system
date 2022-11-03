@@ -1,0 +1,4 @@
+{ ... }:
+{
+  tmate.enable = true;
+}
