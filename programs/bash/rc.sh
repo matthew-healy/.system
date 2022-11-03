@@ -1,5 +1,11 @@
 #!/bin/bash
 
+###############
+# DIRENV HOOK #
+###############
+
+eval "$(direnv hook bash)"
+
 #####################
 # HELPFUL FUNCTIONS #
 #####################
