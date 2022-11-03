@@ -1,9 +1,11 @@
 { home-manager, lib, ... }:
 {
-  home-manager.users.matthew = { pkgs, ... }: {
+  home-manager.users.matthew = { pkgs, config, ... }: {
     services.gnome-keyring.enable = true;
 
     home.stateVersion = "22.05";
+
+    home.file.".gitignore".source = config.lib.file.mkOutOfStoreSymlink ./programs/git/ignore;
 
     programs = 
       let
