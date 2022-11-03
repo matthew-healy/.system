@@ -1,4 +1,9 @@
 #!/bin/bash
+
+#####################
+# HELPFUL FUNCTIONS #
+#####################
+
 function mkd() {
   mkdir -p "$1" && cd "$_" || exit;
 };
@@ -41,15 +46,15 @@ prompt_git() {
     # if HEAD isn’t a symbolic ref, get short SHA for latest commit.
     # otherwise, just give up.
     branchName="$(git symbolic-ref --quiet --short HEAD 2> /dev/null || \
-      git rev-parse --short HEAD 2> /dev/null || \
-      echo '(unknown)')";
+                  git rev-parse --short HEAD 2> /dev/null || \
+                  echo '(unknown)')";
 
     [ -n "${state}" ] && state=" [${state}]";
 
     echo -e "${prefix}${branchColour}${branchName}${stateColour}${state}";
-	else
-		return;
-	fi;
+  else
+    return;
+  fi;
 }
 
 PS1="\n";
