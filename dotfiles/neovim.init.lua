@@ -54,6 +54,7 @@ require('packer').startup(function(use)
   use 'LnL7/vim-nix'
   use 'airblade/vim-gitgutter'
   use 'neovim/nvim-lspconfig'
+  use 'qnighy/lalrpop.vim'
 
   use ({
     'simrat39/rust-tools.nvim',
