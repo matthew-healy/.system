@@ -53,6 +53,7 @@
       gnome.gnome-sound-recorder
       gnome.gnome-todo
       gnome.pomodoro
+      lld
       slack
     ];
   };
