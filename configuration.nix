@@ -42,6 +42,7 @@
   nix.settings.substituters = [
     "https://cache.iog.io"
   ];
+  nix.settings.trusted-users = [ "root" "matthew" ];
 
   users.users.matthew = {
     isNormalUser = true;
