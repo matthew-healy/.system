@@ -10,9 +10,8 @@
         line-number = "relative";
         cursorline = true;
         rulers = [80 120];
-        # TODO: enable these once on helix 22.12
-        # auto-save = true;
-        # bufferline = "multiple";
+        auto-save = true;
+        bufferline = "multiple";
       };
 
       keys = {
