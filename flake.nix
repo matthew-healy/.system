@@ -17,14 +17,14 @@
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs =
-    { self
-    , nixpkgs
-    , home-manager
-    ,
-    }:
+  outputs = { self, nixpkgs, home-manager, pre-commit-hooks }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -32,8 +32,16 @@
         config.allowUnfree = true;
       };
       lib = nixpkgs.lib;
+      pre-commit = (pre-commit-hooks.lib.${system}.run {
+        src = self;
+        hooks.nixpkgs-fmt.enable = true;
+      }).shellHook;
     in
     {
+      devShell.${system} = pkgs.mkShell {
+        shellHook = pre-commit;
+      };
+
       formatter.${system} = pkgs.nixpkgs-fmt;
 
       nixosConfigurations = {
