@@ -1,6 +1,8 @@
-{ config, pkgs, home-manager, ... }:
-
-{
+{ config
+, pkgs
+, home-manager
+, ...
+}: {
   boot.loader.systemd-boot.enable = true;
 
   networking.hostName = "foundation";
@@ -34,14 +36,10 @@
     pulse.enable = true;
   };
 
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  nix.settings.trusted-public-keys = [
-    "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
-  ];
-  nix.settings.substituters = [
-    "https://cache.iog.io"
-  ];
+  nix.settings.trusted-public-keys = [ "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=" ];
+  nix.settings.substituters = [ "https://cache.iog.io" ];
   nix.settings.trusted-users = [ "root" "matthew" ];
 
   users.users.matthew = {
@@ -58,7 +56,7 @@
       slack
     ];
   };
-  
+
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
@@ -70,7 +68,7 @@
     vim
     wget
   ];
-  
+
   # Services
 
   # Fingerprint
@@ -87,5 +85,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.05"; # Did you read the comment?
-
 }

@@ -1,6 +1,1 @@
-{ ... }:
-{
-  bat = {
-    enable = true;
-  };
-}
+{ ... }: { bat = { enable = true; }; }

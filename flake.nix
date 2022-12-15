@@ -3,23 +3,28 @@
 
   inputs = {
     nixpkgs = {
-      type  = "github";
+      type = "github";
       owner = "NixOS";
-      repo  = "nixpkgs";
-      ref   = "nixos-unstable";
+      repo = "nixpkgs";
+      ref = "nixos-unstable";
     };
 
     home-manager = {
-      type  = "github";
+      type = "github";
       owner = "nix-community";
-      repo  = "home-manager";
-      ref   = "master";
+      repo = "home-manager";
+      ref = "master";
 
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager }:
+  outputs =
+    { self
+    , nixpkgs
+    , home-manager
+    ,
+    }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -27,7 +32,10 @@
         config.allowUnfree = true;
       };
       lib = nixpkgs.lib;
-    in {
+    in
+    {
+      formatter.${system} = pkgs.nixpkgs-fmt;
+
       nixosConfigurations = {
         foundation = lib.nixosSystem {
           inherit system;

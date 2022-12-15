@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   kitty = {
     enable = true;
 

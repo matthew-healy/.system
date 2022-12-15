@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   git = {
     enable = true;
     lfs.enable = true;
@@ -12,15 +11,16 @@
       let
         bashExpr = e: "!" + e;
         bashPipeline = es: bashExpr (builtins.concatStringsSep " | " es);
-      in {
+      in
+      {
         last = "log -1 HEAD";
         debranch = bashPipeline [
           ''git for-each-ref --format="%(refname:short)" refs/heads/''
           ''egrep -v "(^\*|main|master|trunk|dev|develop$)"''
-          ''grep -v $(git branch --show-current)''
-          ''xargs git branch -D''
+          "grep -v $(git branch --show-current)"
+          "xargs git branch -D"
         ];
-        sync = bashExpr ''\
+        sync = bashExpr ''
           f() { \
             local remote root; \
             if [ $# -le 1 ]; then \

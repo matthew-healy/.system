@@ -1,5 +1,4 @@
-{ ... }:
-{
+{ ... }: {
   emacs = {
     enable = true;
 

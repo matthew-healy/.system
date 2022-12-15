@@ -1,13 +1,10 @@
-{ ... }: 
-{
+{ ... }: {
   bash = {
     enable = true;
 
-    historyIgnore = ["ls" "cd" ".."];
-    
-    sessionVariables = {
-      EDITOR = "vim";
-    };
+    historyIgnore = [ "ls" "cd" ".." ];
+
+    sessionVariables = { EDITOR = "vim"; };
 
     shellAliases = {
       ".." = "cd ..";

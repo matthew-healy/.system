@@ -1,4 +1,1 @@
-{ ... }:
-{
-  direnv.enable = true;
-}
+{ ... }: { direnv.enable = true; }
