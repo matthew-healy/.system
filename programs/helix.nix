@@ -12,6 +12,16 @@
         rulers = [ 80 120 ];
         auto-save = true;
         bufferline = "multiple";
+
+        statusline = {
+          left = [ "mode" "spinner" ];
+          center = [ "file-name" ];
+          mode.normal = "normal";
+          mode.insert = "insert";
+          mode.select = "select";
+        };
+
+        cursor-shape.insert = "bar";
       };
 
       keys = {
