@@ -9,7 +9,7 @@
         scrolloff = 10;
         line-number = "relative";
         cursorline = true;
-        rulers = [80 120];
+        rulers = [ 80 120 ];
         auto-save = true;
         bufferline = "multiple";
       };
