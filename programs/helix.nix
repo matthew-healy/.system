@@ -5,6 +5,16 @@
     settings = {
       theme = "berry_blitz";
 
+      editor = {
+        scrolloff = 10;
+        line-number = "relative";
+        cursorline = true;
+        rulers = [80 120];
+        # TODO: enable these once on helix 22.12
+        # auto-save = true;
+        # bufferline = "multiple";
+      };
+
       keys = {
         insert = {
           up = "no_op";
@@ -58,7 +68,6 @@
         string = { fg = "gold"; };
         tag = { fg = "gold"; };
         type = { fg = "violet"; };
-        # "ui.background" = { bg = "berry"; };
         "ui.cursor" = { bg = "lilac"; fg = "berry"; };
         "ui.cursor.insert" = { bg = "mint"; fg = "berry"; };
         "ui.cursor.match" = { bg = "berry_desaturated"; fg = "berry"; };
