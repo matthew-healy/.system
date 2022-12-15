@@ -65,6 +65,7 @@
     fprintd
     git
     keychain
+    nil
     vim
     wget
   ];
