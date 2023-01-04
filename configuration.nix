@@ -3,6 +3,8 @@
 , home-manager
 , ...
 }: {
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
   boot.loader.systemd-boot.enable = true;
 
   networking.hostName = "foundation";
