@@ -74,6 +74,8 @@
         whitespace = "space-before-tab,trailing-space";
       };
 
+      credential.helper = "store";
+
       help.autocorrect = 1;
 
       init.defaultBranch = "trunk";
