@@ -6,6 +6,13 @@
 
 eval "$(direnv hook bash)"
 
+
+###############
+# ZOXIDE INIT #
+###############
+
+eval "$(zoxide init bash)"
+
 #####################
 # HELPFUL FUNCTIONS #
 #####################
