@@ -13,6 +13,10 @@
         auto-save = true;
         bufferline = "multiple";
 
+        file-picker = {
+          hidden = false;
+        };
+
         statusline = {
           left = [ "mode" "spinner" ];
           center = [ "file-name" ];
