@@ -71,6 +71,8 @@
       core = {
         excludesFile = "~/.gitignore";
 
+        editor = "hx";
+
         whitespace = "space-before-tab,trailing-space";
       };
 
