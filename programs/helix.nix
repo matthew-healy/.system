@@ -46,6 +46,16 @@
       };
     };
 
+    languages = [
+      {
+        name = "rust";
+        config = {
+          cargo.features = "all";
+          procMacro.enable = true;
+        };
+      }
+    ];
+
     themes = {
       # This is the boo_berry theme but without a background colour so that
       # I can keep my transparent kitty bg.
