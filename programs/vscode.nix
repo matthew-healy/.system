@@ -12,6 +12,7 @@
       "files.autoSave" = "afterDelay";
       "files.autoSaveDelay" = 1000;
       "haskell.manageHLS" = "PATH";
+      "rust-analyzer.cargo.features" = "all";
       "telemetry.telemetryLevel" = "off";
       "workbench.colorTheme" = "Pink Cat Boo";
     };
