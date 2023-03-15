@@ -56,7 +56,8 @@
       gnome.gnome-sound-recorder
       gnome.gnome-todo
       gnome.pomodoro
-      lld
+      # lld, but wrapped to set the rpath correctly
+      llvmPackages.bintools
       slack
     ];
   };
