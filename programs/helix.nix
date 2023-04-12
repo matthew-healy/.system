@@ -10,6 +10,7 @@
         line-number = "relative";
         cursorline = true;
         rulers = [ 80 120 ];
+        soft-wrap.enable = true;
         auto-save = true;
         bufferline = "multiple";
 
@@ -20,12 +21,15 @@
         statusline = {
           left = [ "mode" "spinner" ];
           center = [ "file-name" ];
+          right = [ "version-control" ];
           mode.normal = "normal";
           mode.insert = "insert";
           mode.select = "select";
         };
 
         cursor-shape.insert = "bar";
+
+        lsp.display-inlay-hints = true;
       };
 
       keys = {
