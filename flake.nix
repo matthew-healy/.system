@@ -38,7 +38,7 @@
       }).shellHook;
     in
     {
-      devShell.${system} = pkgs.mkShell {
+      devShells.${system}.default = pkgs.mkShell {
         shellHook = pre-commit;
       };
 
