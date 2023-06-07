@@ -44,22 +44,27 @@
 
       formatter.${system} = pkgs.nixpkgs-fmt;
 
-      nixosConfigurations = {
-        foundation = lib.nixosSystem {
-          inherit system;
+      nixosConfigurations = 
+        let 
+          makeSystem = hardware: lib.nixosSystem {
+            inherit system;
 
-          modules = [
-            ./hardware/foundation.nix
-            ./configuration.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-            }
-            ./home.nix
-            ./fonts.nix
-          ];
-        };
+            modules = [
+              hardware
+              ./configuration.nix
+              home-manager.nixosModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+              }
+              ./home.nix
+              ./fonts.nix
+            ];
+          };
+      in 
+      {
+        foundation = makeSystem ./hardware/terminus.nix;
+        terminus = makeSystem ./hardware/terminus.nix;
       };
     };
 }

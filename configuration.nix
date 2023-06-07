@@ -3,11 +3,11 @@
 , home-manager
 , ...
 }: {
+  # some of this might be better in a hardware/base.nix module
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.loader.systemd-boot.enable = true;
 
-  networking.hostName = "foundation";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Berlin";
@@ -27,7 +27,6 @@
   console.keyMap = "us";
 
   services.printing.enable = true;
-
   services.fwupd.enable = true;
 
   sound.enable = true;
@@ -48,17 +47,14 @@
 
   users.users.matthew = {
     isNormalUser = true;
-    description = "Matthew Healy";
+    description = "matthew";
     extraGroups = [ "audio" "docker" "networkmanager" "wheel" ];
     packages = with pkgs; [
       _1password-gui
+      # TODO: move to home-manager?
       firefox
-      gnome.gnome-sound-recorder
-      gnome.gnome-todo
-      gnome.pomodoro
       # lld, but wrapped to set the rpath correctly
       llvmPackages.bintools
-      slack
     ];
   };
 
@@ -67,22 +63,12 @@
   environment.systemPackages = with pkgs; [
     direnv
     docker
-    fprintd
     git
     keychain
     nil
     vim
     wget
   ];
-
-  # Services
-
-  # Fingerprint
-  services.fprintd.enable = true;
-  security.pam.services.login.fprintAuth = true;
-
-  # GNOME Keyring
-  security.pam.services.gdm.enableGnomeKeyring = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

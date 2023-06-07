@@ -34,6 +34,7 @@
   swapDevices = [{ device = "/dev/disk/by-uuid/7b982852-750c-43f1-b855-d99e8b5d7e4c"; }];
 
   networking.useDHCP = lib.mkDefault true;
+  networking.hostName = "foundation";
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode =
