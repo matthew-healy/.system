@@ -1,12 +1,18 @@
-{ config
-, pkgs
-, home-manager
+{ pkgs
 , ...
 }: {
   # some of this might be better in a hardware/base.nix module
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.loader.systemd-boot.enable = true;
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    grub = {
+      enable = true;
+      devices = [ "nodev" ];
+      efiSupport = true;
+      useOSProber = true;
+    };
+  };
 
   networking.networkmanager.enable = true;
 
