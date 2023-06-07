@@ -44,8 +44,8 @@
 
       formatter.${system} = pkgs.nixpkgs-fmt;
 
-      nixosConfigurations = 
-        let 
+      nixosConfigurations =
+        let
           makeSystem = hardware: lib.nixosSystem {
             inherit system;
 
@@ -61,10 +61,10 @@
               ./fonts.nix
             ];
           };
-      in 
-      {
-        foundation = makeSystem ./hardware/terminus.nix;
-        terminus = makeSystem ./hardware/terminus.nix;
-      };
+        in
+        {
+          foundation = makeSystem ./hardware/terminus.nix;
+          terminus = makeSystem ./hardware/terminus.nix;
+        };
     };
 }
