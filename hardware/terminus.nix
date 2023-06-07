@@ -12,7 +12,6 @@
   boot.extraModulePackages = [ ];
 
   # Moved these here from the generated configuration.nix... not sure if there's a better place for it.
-  boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   fileSystems."/" = {

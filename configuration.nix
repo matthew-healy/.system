@@ -5,12 +5,25 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.loader = {
-    efi.canTouchEfiVariables = true;
+    efi.canTouchEfiVariables = false;
     grub = {
       enable = true;
-      devices = [ "nodev" ];
+
       efiSupport = true;
+      efiInstallAsRemovable = true;
+      devices = [ "nodev" ];
+
       useOSProber = true;
+
+      extraEntries = ''
+        menuentry "reboot" {
+          reboot
+        }
+
+        menuentry "off" {
+          halt
+        }
+      '';
     };
   };
 
