@@ -1,5 +1,7 @@
-{ home-manager
-, lib
+# Yikes, I hate this!
+# Moving to homeConfiguration would likely make this nicer.
+{ nurpkgs }: {
+ lib
 , ...
 }: {
   home-manager.users.matthew =
@@ -30,7 +32,7 @@
               (lib.filterAttrs (name: typ: typ != "directory")
                 (builtins.readDir programsDir));
           allPrograms =
-            map (p: import "${programsDir}/${p}" { inherit pkgs; })
+            map (p: import "${programsDir}/${p}" { inherit nurpkgs pkgs; })
               allProgramFiles;
           merge = a: b: a // b;
         in

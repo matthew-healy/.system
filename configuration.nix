@@ -70,8 +70,6 @@
     extraGroups = [ "audio" "docker" "networkmanager" "wheel" ];
     packages = with pkgs; [
       _1password-gui
-      # TODO: move to home-manager?
-      firefox
       # lld, but wrapped to set the rpath correctly
       llvmPackages.bintools
     ];

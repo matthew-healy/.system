@@ -22,9 +22,13 @@
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nurpkgs = {
+      url = "github:nix-community/NUR";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, pre-commit-hooks }:
+  outputs = { self, nixpkgs, home-manager, pre-commit-hooks, nurpkgs }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -57,7 +61,7 @@
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
               }
-              ./home.nix
+              (import ./home.nix { inherit nurpkgs; })
               ./fonts.nix
             ];
           };

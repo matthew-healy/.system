@@ -105,6 +105,21 @@
         "type": "github"
       }
     },
+    "nurpkgs": {
+      "locked": {
+        "lastModified": 1686180313,
+        "narHash": "sha256-pWGL9DCLbfIIb4M/WWuDFkT4qE++BNiqijgZ8ZEx1FI=",
+        "owner": "nix-community",
+        "repo": "NUR",
+        "rev": "46b8a6d3d06f283b54775e5a504f6b59dd30312d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "NUR",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -133,6 +148,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "nurpkgs": "nurpkgs",
         "pre-commit-hooks": "pre-commit-hooks"
       }
     }
