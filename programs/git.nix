@@ -5,7 +5,13 @@
     difftastic.enable = true;
 
     userName = "Matthew Healy";
-    userEmail = "matthew.healy@tweag.io";
+    userEmail =
+      # does this actually prevent email scraping?
+      let
+        name = "matthew";
+        domain = "liamhealy.xyz";
+      in
+        "${name}@${domain}";
 
     aliases =
       let
