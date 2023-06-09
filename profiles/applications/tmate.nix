@@ -1,5 +1,5 @@
-{ ... }: {
-  tmate = {
+{
+  home-manager.users.matthew.programs.tmate = {
     enable = true;
 
     extraConfig = ''

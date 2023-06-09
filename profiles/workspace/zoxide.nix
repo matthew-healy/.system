@@ -1,5 +1,5 @@
-{ ... }: {
-  zoxide = {
+{
+  home-manager.users.matthew.programs.zoxide = {
     enable = true;
 
     options = [

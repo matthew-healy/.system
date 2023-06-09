@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  neovim = {
+  home-manager.users.matthew.programs.neovim = {
     enable = true;
 
     viAlias = true;
@@ -8,7 +8,7 @@
     plugins = with pkgs.vimPlugins; [
       # for plugins that aren't in nixpkgs
       packer-nvim
-      # automatically toggles between relative & actual line numbers
+      # automatically toggle between relative & actual line numbers
       vim-numbertoggle
     ];
   };

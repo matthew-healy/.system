@@ -1,6 +1,6 @@
 { pkgs, ... }: {
-  vscode = {
-    enable = true;
+  home-manager.users.matthew.programs.vscode = {
+    enable = true; 
 
     userSettings = {
       "editor.fontFamily" = "'Fira Code', 'monospace', monospace";
@@ -23,6 +23,7 @@
         haskell.haskell
         jnoortheen.nix-ide
         justusadam.language-haskell
+        matklad.rust-analyzer
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
