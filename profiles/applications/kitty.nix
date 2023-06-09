@@ -1,5 +1,5 @@
-{ ... }: {
-  kitty = {
+{
+  home-manager.users.matthew.programs.kitty = {
     enable = true;
 
     settings = {

@@ -59,31 +59,30 @@
         ]
       },
       "locked": {
-        "lastModified": 1684824189,
-        "narHash": "sha256-k3nCkn5Qy67rCguuw6YkGuL6hOUNRKxQoKOjnapk5sU=",
-        "owner": "nix-community",
+        "lastModified": 1686342731,
+        "narHash": "sha256-GwCwviXcc5nrewuFwtsrxys8srrZcI+m8hdIGOt+fHY=",
+        "owner": "rycee",
         "repo": "home-manager",
-        "rev": "58eb968c21d309a6c2b020ea8d64e25c38ceebba",
+        "rev": "0945875a2a20de314093b0f9d4d5448e9b4fdccb",
         "type": "github"
       },
       "original": {
-        "owner": "nix-community",
-        "ref": "master",
+        "owner": "rycee",
         "repo": "home-manager",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1684935479,
-        "narHash": "sha256-6QMMsXMr2nhmOPHdti2j3KRHt+bai2zw+LJfdCl97Mk=",
-        "owner": "NixOS",
+        "lastModified": 1686226982,
+        "narHash": "sha256-nLuiPoeiVfqqzeq9rmXxpybh77VS37dsY/k8N2LoxVg=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "f91ee3065de91a3531329a674a45ddcb3467a650",
+        "rev": "a64b73e07d4aa65cfcbda29ecf78eaf9e72e44bd",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
+        "owner": "nixos",
         "ref": "nixos-unstable",
         "repo": "nixpkgs",
         "type": "github"
@@ -105,13 +104,13 @@
         "type": "github"
       }
     },
-    "nurpkgs": {
+    "nur": {
       "locked": {
-        "lastModified": 1686180313,
-        "narHash": "sha256-pWGL9DCLbfIIb4M/WWuDFkT4qE++BNiqijgZ8ZEx1FI=",
+        "lastModified": 1686348012,
+        "narHash": "sha256-4vMc0mutNHQi/LFC/g+rcWBqqOcMS933LcsOLrIY3d4=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "46b8a6d3d06f283b54775e5a504f6b59dd30312d",
+        "rev": "e58415500b4bd030dabdfbd49f68116e8c258ae2",
         "type": "github"
       },
       "original": {
@@ -148,7 +147,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nurpkgs": "nurpkgs",
+        "nur": "nur",
         "pre-commit-hooks": "pre-commit-hooks"
       }
     }
