@@ -2,7 +2,7 @@
   home-manager.users.matthew.programs.firefox = {
     enable = true;
 
-    profiles.default = 
+    profiles.default =
       let
         nur = import inputs.nur { inherit pkgs; nurpkgs = pkgs; };
       in

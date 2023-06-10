@@ -1,6 +1,6 @@
 { pkgs, ... }: {
   home-manager.users.matthew.programs.vscode = {
-    enable = true; 
+    enable = true;
 
     userSettings = {
       "editor.fontFamily" = "'Fira Code', 'monospace', monospace";

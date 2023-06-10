@@ -1,8 +1,8 @@
 {
   home-manager.users.matthew = { config, ... }: {
-    home.file.".gitignore".source = 
+    home.file.".gitignore".source =
       config.lib.file.mkOutOfStoreSymlink ./global.gitignore;
-    
+
     programs.git = {
       enable = true;
       lfs.enable = true;

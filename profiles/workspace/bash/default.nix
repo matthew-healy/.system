@@ -1,4 +1,4 @@
-{ pkgs, ...}: {
+{ pkgs, ... }: {
   environment.sessionVariables.SHELL = "${pkgs.bash}/bin/bash";
 
   home-manager.users.matthew.programs.bash = {
@@ -6,7 +6,7 @@
 
     historyIgnore = [ "ls" "cd" ".." ];
 
-    shellAliases = { 
+    shellAliases = {
       ".." = "cd ..";
       "cat" = "${pkgs.bat}/bin/bat";
     };

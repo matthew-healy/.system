@@ -39,7 +39,8 @@
               inherit name;
               value = dir + "/${name}";
             }] else
-              findModules (dir + "/${name}")) (builtins.readDir dir)));
+              findModules (dir + "/${name}"))
+          (builtins.readDir dir)));
 
     in
     {
@@ -70,7 +71,8 @@
 
               specialArgs = { inherit inputs; };
             };
-        in lib.genAttrs hosts makeHost;
+        in
+        lib.genAttrs hosts makeHost;
 
 
       devShells.${system}.default =
@@ -80,9 +82,9 @@
             hooks.nixpkgs-fmt.enable = true;
           }).shellHook;
         in
-          pkgs.mkShell {
-            shellHook = pre-commit;
-          };
+        pkgs.mkShell {
+          shellHook = pre-commit;
+        };
 
       formatter.${system} = pkgs.nixpkgs-fmt;
     };

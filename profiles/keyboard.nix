@@ -1,4 +1,4 @@
-{ 
+{
   services.xserver = {
     layout = "us,gb";
     xkbVariant = "";
