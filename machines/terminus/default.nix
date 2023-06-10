@@ -5,6 +5,9 @@
     inputs.self.nixosProfiles.print-scan
   ];
 
+  # TODO: try setting this "generically"
+  networking.hostName = "terminus";
+
   # TODO: move to profile?
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
