@@ -4,11 +4,14 @@
 
     boot
 
+    application-setup
     hardware
     packages
     sound
     virtualisation
 
+    _1password
+    ark
     cargo
     direnv
     firefox

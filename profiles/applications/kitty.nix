@@ -1,4 +1,9 @@
-{
+{ pkgs, ... }: {
+  defaultApplications.term = {
+    cmd = "${pkgs.kitty}/bin/kitty";
+    desktop = "term";
+  };
+
   home-manager.users.matthew.programs.kitty = {
     enable = true;
 

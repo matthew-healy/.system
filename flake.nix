@@ -44,6 +44,8 @@
 
     in
     {
+      nixosModules = builtins.listToAttrs (findModules ./modules);
+
       nixosProfiles = builtins.listToAttrs (findModules ./profiles);
 
       nixosRoles = import ./roles;
@@ -56,9 +58,7 @@
             lib.nixosSystem {
               inherit system;
 
-              # Note: if/when i add modules, i'll want to add something like
-              #       `__attrValues self.nixosModules` here
-              modules = [
+              modules = builtins.attrValues self.nixosModules ++ [
                 inputs.home-manager.nixosModules.home-manager
                 # TODO: move this somewhere more appropriate?
                 {

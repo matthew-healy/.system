@@ -1,4 +1,9 @@
-{
+{ pkgs, ... }: {
+  defaultApplications.editor = {
+    cmd = "${pkgs.helix}/bin/hx";
+    desktop = "helix";
+  };
+
   home-manager.users.matthew.programs.helix = {
     enable = true;
 

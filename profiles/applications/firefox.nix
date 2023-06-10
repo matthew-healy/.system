@@ -1,4 +1,9 @@
 { inputs, pkgs, ... }: {
+  defaultApplications.browser = {
+    cmd = "${pkgs.firefox}/bin/firefox";
+    desktop = "firefox";
+  };
+
   home-manager.users.matthew.programs.firefox = {
     enable = true;
 
