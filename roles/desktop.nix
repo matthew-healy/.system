@@ -5,6 +5,7 @@
     boot
 
     application-setup
+    bluetooth
     hardware
     packages
     sound
