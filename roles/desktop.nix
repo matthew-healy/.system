@@ -6,6 +6,7 @@
 
     application-setup
     bluetooth
+    ergodox
     hardware
     packages
     sound
