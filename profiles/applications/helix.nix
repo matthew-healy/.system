@@ -51,6 +51,12 @@
 
         normal = {
           "A-~" = "switch_to_uppercase";
+
+          # Swap default behaviour for yank-on-deletion.
+          "A-d" = "delete_selection";
+          "d" = "delete_selection_noyank";
+          "A-c" = "change_selection";
+          "c" = "change_selection_noyank";
         };
       };
     };
