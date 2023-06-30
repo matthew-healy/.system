@@ -22,6 +22,7 @@
     keychain
     kitty
     neovim
+    ncmpcpp
     tmate
     vscode
     zoxide
