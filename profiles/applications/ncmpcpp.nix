@@ -1,7 +1,16 @@
-{
-  home-manager.users.matthew.programs.ncmpcpp = {
+{ config, ... }: {
+  home-manager.users.matthew.services.mpd = {
     enable = true;
 
-    mpdMusicDir = /run/media/matthew/yoneda/music;
+    musicDirectory = "${config.users.users.matthew.home}/Music";
+
+    extraConfig = ''
+      audio_output {
+        type "pipewire"
+        name "Pipewire Output"
+      }
+    '';
   };
+
+  home-manager.users.matthew.programs.ncmpcpp.enable = true;
 }
