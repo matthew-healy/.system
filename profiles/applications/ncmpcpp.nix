@@ -12,5 +12,9 @@
     '';
   };
 
-  home-manager.users.matthew.programs.ncmpcpp.enable = true;
+  home-manager.users.matthew.programs = {
+    ncmpcpp.enable = true;
+
+    bash.shellAliases."music" = "ncmpcpp";
+  };
 }
