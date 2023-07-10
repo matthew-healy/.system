@@ -46,6 +46,8 @@
             f'';
         };
 
+      signing.key = "${config.users.users.matthew.home}/.ssh/id_ed25519.pub";
+
       extraConfig = {
         apply.whitespace = "fix";
 
@@ -79,8 +81,6 @@
 
           whitespace = "space-before-tab,trailing-space";
         };
-
-        credential.helper = "store";
 
         help.autocorrect = 1;
 
