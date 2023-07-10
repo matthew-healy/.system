@@ -1,4 +1,5 @@
-{
+{ config, ... }:
+let root-cfg = config; in {
   home-manager.users.matthew = { config, ... }: {
     home.file.".gitignore".source =
       config.lib.file.mkOutOfStoreSymlink ./global.gitignore;
@@ -46,7 +47,7 @@
             f'';
         };
 
-      signing.key = "${config.users.users.matthew.home}/.ssh/id_ed25519.pub";
+      signing.key = "${root-cfg.users.users.matthew.home}/.ssh/id_ed25519.pub";
 
       extraConfig = {
         apply.whitespace = "fix";
@@ -81,6 +82,8 @@
 
           whitespace = "space-before-tab,trailing-space";
         };
+
+        gpg.format = "ssh";
 
         help.autocorrect = 1;
 
