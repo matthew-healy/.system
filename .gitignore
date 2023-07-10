@@ -1,4 +1,8 @@
+# nix build outputs
 result
-# pre-commit-hooks
+# pre-commit-hooks config file - this is managed by nix, so we don't want to
+# commit it.
 /.pre-commit-config.yaml
+# associated direnv stuff
 .direnv/
+.envrc
