@@ -1,7 +1,7 @@
 { inputs, ... }: {
   imports = with inputs.self.nixosProfiles; [
     ./base.nix
-    
+
     kernel
 
     application-setup

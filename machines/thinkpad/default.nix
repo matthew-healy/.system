@@ -1,13 +1,10 @@
-{ config, inputs, ... }: {
+{ inputs, ... }: {
   imports = [
     ./hardware-configuration.nix
-    inputs.self.nixosRoles.desktop
+    inputs.self.nixosRoles.trantor
   ];
-  
-  # TODO: set this generically
-  networking.hostName = "trantor";
-  
-  # Bootloader. TODO: is this necessary?
+
+  # TODO: grub?
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
@@ -22,5 +19,8 @@
   boot.initrd.luks.devices."luks-f66f6551-4baa-404a-bf63-1a4d9aa23007".keyFile = "/crypto_keyfile.bin";
 
   # TODO: move to profile?
-  boot.kernelParams = ["i915.force_probe=46a8"];
+  # Hints to the kernel which graphics driver to use. Without this GDM won't
+  # start. If it ever starts playing up, look here:
+  # https://nixos.wiki/wiki/Intel_Graphics
+  boot.kernelParams = [ "i915.force_probe=46a8" ];
 }

@@ -1,12 +1,9 @@
 { config, inputs, ... }: {
   imports = [
     ./hardware-configuration.nix
-    inputs.self.nixosRoles.desktop
+    inputs.self.nixosRoles.terminus
     inputs.self.nixosProfiles.grub-dual-boot
   ];
-
-  # TODO: try setting this "generically"
-  networking.hostName = "terminus";
 
   # TODO: move to profile?
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
