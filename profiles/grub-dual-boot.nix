@@ -1,6 +1,9 @@
-{ pkgs, ... }: {
+{
   boot.loader = {
-    efi.canTouchEfiVariables = false;
+    efi = {
+      canTouchEfiVariables = false;
+      efiSysMountPoint = "/boot/efi";
+    };
 
     grub = {
       enable = true;

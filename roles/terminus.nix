@@ -1,7 +1,6 @@
 { ... }: {
   imports = [
-    ./desktop.nix
-    # whatever i want, like
+    ./common.nix
   ];
 
   networking.hostName = "terminus";

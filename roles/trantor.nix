@@ -1,7 +1,7 @@
-{ ... }: {
-  imports = [
-    ./desktop.nix
-    # slack etc.
+{ inputs, ... }: {
+  imports = with inputs.self.nixosProfiles; [
+    ./common.nix
+    slack
   ];
 
   networking.hostName = "trantor";
