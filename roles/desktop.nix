@@ -1,14 +1,15 @@
 { inputs, ... }: {
   imports = with inputs.self.nixosProfiles; [
     ./base.nix
-
-    boot
+    
+    kernel
 
     application-setup
     bluetooth
     ergodox
     hardware
     packages
+    print-scan
     sound
     virtualisation
 

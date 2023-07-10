@@ -2,7 +2,7 @@
   imports = [
     ./hardware-configuration.nix
     inputs.self.nixosRoles.desktop
-    inputs.self.nixosProfiles.print-scan
+    inputs.self.nixosProfiles.grub-dual-boot
   ];
 
   # TODO: try setting this "generically"
