@@ -21,7 +21,7 @@
       enable = true;
 
       settings = {
-        header_visibility = "no";
+        header_visibility = "yes";
         state_line_color = "white";
 
         progressbar_look = "━━━";
