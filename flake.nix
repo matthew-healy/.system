@@ -23,6 +23,7 @@
 
       pkgs = import nixpkgs {
         inherit system;
+        overlays = [ self.overlay ];
         config.allowUnfree = true;
       };
 
@@ -74,6 +75,7 @@
         in
         lib.genAttrs hosts makeHost;
 
+      overlay = import ./overlay.nix inputs;
 
       devShells.${system}.default =
         let
