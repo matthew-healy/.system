@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   home-manager.users.matthew.home.packages = with pkgs;
     [
-      aseprite
       asunder
       bat
       curl
