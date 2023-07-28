@@ -21,6 +21,9 @@
 
         file-picker = {
           hidden = false;
+          git-ignore = true;
+          git-global = true;
+          git-exclude = true;
         };
 
         statusline = {
