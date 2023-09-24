@@ -34,6 +34,7 @@
     kitty
     neovim
     ncmpcpp
+    pomodoro
     tmate
     vscode
     zoxide
