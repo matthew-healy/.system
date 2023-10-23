@@ -67,7 +67,7 @@ let root-cfg = config; in {
               echo "Please mark all commits as 'edit' to proceed."; \
               git fetch $remote $root:$root; \
               if (git rebase -i $root); then \
-                while (cat .git/rebase-merge/done); do \
+                while (cat .git/rebase-merge/done >/dev/null 2>&1); do \
                   git commit -S --amend --no-edit; \
                   git rebase --continue; \
                 done; \
