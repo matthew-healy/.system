@@ -9,6 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    helix-trunk = {
+      url = "github:helix-editor/helix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -28,7 +33,6 @@
       };
 
       lib = nixpkgs.lib;
-
 
       findModules = dir:
         builtins.concatLists (builtins.attrValues (builtins.mapAttrs

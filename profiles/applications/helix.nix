@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   defaultApplications.editor = {
     cmd = "${pkgs.helix}/bin/hx";
     desktop = "helix";
@@ -6,6 +6,8 @@
 
   home-manager.users.matthew.programs.helix = {
     enable = true;
+
+    package = inputs.helix-trunk.packages."x86_64-linux".default;
 
     settings = {
       theme = "berry_blitz";
@@ -65,13 +67,22 @@
     };
 
     languages = {
+      language-server.ruby-lsp = with pkgs; {
+        command = "${ruby-lsp}/bin/ruby-lsp";
+      };
+
+      language-server.rust-analyzer = with pkgs; {
+        command = "${rust-analyzer}/bin/rust-analyzer";
+        config = {
+          cargo.features = "all";
+          procMacro.enable = true;
+        };
+      };
+
       language = [
         {
-          name = "rust";
-          config = {
-            cargo.features = "all";
-            procMacro.enable = true;
-          };
+          name = "ruby";
+          language-servers = [ "ruby-lsp" ];
         }
       ];
     };
