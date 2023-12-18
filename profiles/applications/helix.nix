@@ -84,6 +84,10 @@
           name = "ruby";
           language-servers = [ "ruby-lsp" ];
         }
+        {
+          name = "bash";
+          shebangs = [ "sh" "bash" "bats" "dash" "zsh" ];
+        }
       ];
     };
 
