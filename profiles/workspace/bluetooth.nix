@@ -3,7 +3,7 @@
     enable = true;
 
     # Apple Trackpad won't work without this: https://github.com/bluez/bluez/issues/664
-    settings = {
+    input = {
       General = {
         ClassicBondedOnly = false;
       };
