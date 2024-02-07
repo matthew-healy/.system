@@ -1,7 +1,7 @@
 {
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us,gb";
-    xkbVariant = "";
+    variant = "";
   };
   console.keyMap = "us";
 }
