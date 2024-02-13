@@ -17,9 +17,7 @@
   hardware.nvidia = {
     modesetting.enable = true;
 
-    # Power management is experimental & was breaking sleep mode.
-    powerManagement.enable = false;
-    powerManagement.finegrained = false;
+    powerManagement.enable = true;
 
     open = false;
 
