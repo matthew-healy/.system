@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
 
     home-manager = {
       url = "github:rycee/home-manager";
@@ -27,9 +28,13 @@
     nur.url = "github:nix-community/NUR";
   };
 
-  outputs = inputs@{ self, nixpkgs, ... }:
+  outputs = inputs@{ self, nixpkgs, nixpkgs-stable, ... }:
     let
       system = "x86_64-linux";
+
+      pkgs-stable = import nixpkgs-stable {
+        inherit system;
+      };
 
       pkgs = import nixpkgs {
         inherit system;
@@ -84,7 +89,7 @@
         in
         lib.genAttrs hosts makeHost;
 
-      overlay = import ./overlay.nix inputs;
+      overlay = import ./overlay.nix (inputs // { nixpkgs-stable.pkgs = pkgs-stable; });
 
       devShells.${system}.default =
         let

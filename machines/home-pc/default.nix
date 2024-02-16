@@ -26,6 +26,4 @@
 
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
-
-  kitty.displayServer = "x11";
 }

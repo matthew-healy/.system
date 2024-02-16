@@ -220,6 +220,22 @@
     },
     "nixpkgs-stable": {
       "locked": {
+        "lastModified": 1707978831,
+        "narHash": "sha256-UblFdWQ2MMZNzD9C/w8+7RjAJ2QIbebbzHUniQ/a44o=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "c68a9fc85c2cb3a313be6ff40511635544dde8da",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-23.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs-stable_2": {
+      "locked": {
         "lastModified": 1704874635,
         "narHash": "sha256-YWuCrtsty5vVZvu+7BchAxmcYzTMfolSPP5io8+WYCg=",
         "owner": "NixOS",
@@ -257,7 +273,7 @@
         "nixpkgs": [
           "nixpkgs"
         ],
-        "nixpkgs-stable": "nixpkgs-stable"
+        "nixpkgs-stable": "nixpkgs-stable_2"
       },
       "locked": {
         "lastModified": 1707297608,
@@ -279,6 +295,7 @@
         "helix-trunk": "helix-trunk",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "nixpkgs-stable": "nixpkgs-stable",
         "nur": "nur",
         "pre-commit-hooks": "pre-commit-hooks"
       }
