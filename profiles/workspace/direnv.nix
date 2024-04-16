@@ -19,5 +19,11 @@
         ''echo "use flake" >> .envrc''
         "direnv allow"
       ];
+
+      "use-challenge-review-flake" = and [
+        "touch .envrc"
+        ''echo "use flake ~/projects/gigs/flakes/challenge-review" >> .envrc''
+        "direnv allow"
+      ];
     };
 }
