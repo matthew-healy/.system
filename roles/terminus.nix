@@ -2,6 +2,7 @@
   imports = with inputs.self.nixosProfiles; [
     ./common.nix
     libresprite
+    godot
   ];
 
   networking.hostName = "terminus";
