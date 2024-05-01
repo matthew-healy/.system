@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }: {
+{ pkgs, ... }: {
   defaultApplications.editor = {
     cmd = "${pkgs.helix}/bin/hx";
     desktop = "helix";
@@ -6,8 +6,6 @@
 
   home-manager.users.matthew.programs.helix = {
     enable = true;
-
-    package = inputs.helix-trunk.packages."x86_64-linux".default;
 
     settings = {
       theme = "berry_blitz";

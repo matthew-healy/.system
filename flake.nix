@@ -10,11 +10,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    helix-trunk = {
-      url = "github:helix-editor/helix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     direnv-trunk = {
       url = "github:direnv/direnv";
       inputs.nixpkgs.follows = "nixpkgs";
