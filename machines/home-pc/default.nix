@@ -12,6 +12,7 @@
     driSupport32Bit = true;
   };
 
+  # TODO: should this be in the hardware config?
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
