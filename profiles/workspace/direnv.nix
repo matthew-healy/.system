@@ -20,9 +20,11 @@
         "direnv allow"
       ];
 
+      # TODO: probably just rewrite use-flake as a function which takes an
+      #       optional path to the flake?
       "use-challenge-review-flake" = and [
         "touch .envrc"
-        ''echo "use flake ~/projects/gigs/flakes/challenge-review" >> .envrc''
+        ''echo "use flake --impure ~/projects/gigs/flakes/challenge-review" >> .envrc''
         "direnv allow"
       ];
     };
