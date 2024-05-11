@@ -3,6 +3,7 @@
     ./common.nix
     slack
     unpackaged-programs
+    godot
   ];
 
   networking.hostName = "trantor";
