@@ -36,7 +36,6 @@
     ncmpcpp
     pomodoro
     tmate
-    vscode
     zoxide
   ];
 }
