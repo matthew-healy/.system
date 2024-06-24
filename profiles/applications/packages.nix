@@ -6,6 +6,7 @@
       curl
       # lld, but wrapped to set the rpath correctly
       llvmPackages.bintools
+      tldr
       nil
       zip
     ];
