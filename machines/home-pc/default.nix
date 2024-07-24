@@ -6,10 +6,9 @@
   ];
 
   # TODO: move to profile?
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   # TODO: should this be in the hardware config?
