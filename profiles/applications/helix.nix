@@ -65,10 +65,6 @@
     };
 
     languages = {
-      language-server.ruby-lsp = with pkgs; {
-        command = "${ruby-lsp}/bin/ruby-lsp";
-      };
-
       language-server.rust-analyzer = with pkgs; {
         command = "${rust-analyzer}/bin/rust-analyzer";
         config = {
@@ -78,10 +74,6 @@
       };
 
       language = [
-        {
-          name = "ruby";
-          language-servers = [ "ruby-lsp" ];
-        }
         {
           name = "bash";
           shebangs = [ "sh" "bash" "bats" "dash" "zsh" ];
