@@ -15,11 +15,13 @@
     let
       trackpad = "64:B0:A6:E6:CB:5B";
       headphones = "90:9C:4A:DE:C1:61";
+      mouse = "DC:2D:21:E8:AA:DC";
     in
     {
       shellAliases = {
         "bt-trackpad" = "echo \"${trackpad}\"";
         "bt-headphones" = "echo \"${headphones}\"";
+        "bt-mouse" = "echo \"${mouse}\"";
       };
     };
 }
