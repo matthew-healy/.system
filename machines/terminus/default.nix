@@ -1,9 +1,11 @@
 { config, inputs, ... }: {
   imports = [
     ./hardware-configuration.nix
-    inputs.self.nixosRoles.terminus
+    inputs.self.nixosRoles.home
     inputs.self.nixosProfiles.grub-dual-boot
   ];
+
+  networking.hostName = "terminus";
 
   # TODO: move to profile?
   hardware.graphics = {

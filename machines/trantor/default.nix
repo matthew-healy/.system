@@ -1,8 +1,10 @@
 { inputs, ... }: {
   imports = [
     ./hardware-configuration.nix
-    inputs.self.nixosRoles.trantor
+    inputs.self.nixosRoles.work
   ];
+
+  networking.hostName = "trantor";
 
   # TODO: grub?
   boot.loader.systemd-boot.enable = true;

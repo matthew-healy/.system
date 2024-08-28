@@ -4,6 +4,4 @@
     libresprite
     godot
   ];
-
-  networking.hostName = "terminus";
 }

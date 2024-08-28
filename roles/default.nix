@@ -1,4 +1,4 @@
 {
-  trantor = ./trantor.nix;
-  terminus = ./terminus.nix;
+  home = ./home.nix;
+  work = ./work.nix;
 }
