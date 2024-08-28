@@ -34,7 +34,6 @@
     kitty
     neovim
     ncmpcpp
-    pomodoro
     tmate
     zoxide
   ];
