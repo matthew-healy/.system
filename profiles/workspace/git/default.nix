@@ -22,6 +22,7 @@ let root-cfg = config; in {
           debranch = bashPipeline [
             ''git for-each-ref --format="%(refname:short)" refs/heads/''
             ''egrep -v "(^\*|main|master|trunk|dev|develop$)"''
+            ''grep -v "^spike/"''
             "grep -v $(git branch --show-current)"
             "xargs git branch -D"
           ];
