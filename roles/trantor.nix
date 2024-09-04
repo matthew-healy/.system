@@ -5,6 +5,7 @@
     slack
     password-quality
     unpackaged-programs
+    autolock
   ];
 
   networking.hostName = "trantor";
