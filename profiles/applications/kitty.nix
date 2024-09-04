@@ -19,6 +19,10 @@
       enable = true;
 
       settings = {
+        # This used to "just work" without this, but leaving this blank or
+        # setting it to "${pkgs.bash}/bin/bash" breaks almost everything in
+        # my config, and doing this magically fixes it soooo...
+        shell = "bash";
         cursor_shape = "block";
         shell_integration = "no-cursor";
         font_size = "13.0";
