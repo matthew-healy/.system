@@ -3,6 +3,7 @@
     ./common.nix
     chromium
     slack
+    password-quality
     unpackaged-programs
   ];
 
