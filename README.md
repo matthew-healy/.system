@@ -8,10 +8,10 @@ together from examples I've found online.
 ## Installing this OS
 
 ```
-  |- sudo nixos-rebuild boot --flake .#$machine
+sudo nixos-rebuild boot --flake .#$machine
 ```
 
-(where `$machine` is the machine name - e.g. `home-pc`).
+(where `$machine` is the machine name - e.g. `terminus`).
 
 ## Architecture
 
@@ -20,7 +20,7 @@ me coming back after a few months without updating this config.
 
 Roughly:
 
-- `machines` represent physical machines this OS is installed on. A `machione`
+- `machines` represent physical machines this OS is installed on. A `machine`
   couples a (possibly customised) `hardware-scan` result, with any custom
   configuration that particular machine requires. Each `machine` has a `role`.
 - `roles` represent the way a particular machine is used. e.g. a `home` role
@@ -35,7 +35,3 @@ Roughly:
 - `overlays` can be used to provide additional or overriden packages on top of
   Nixpkgs. Ideally this isn't too necessary as each likely requires some degree
   of maintenance.
-
-Currently `roles` decide the hostname. It probably makes more sense for a
-`machine` to set the hostname, while a `role` is named in a more domain-specific
-way.
