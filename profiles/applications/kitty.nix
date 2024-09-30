@@ -31,7 +31,7 @@
         linux_display_server = config.kitty.displayServer;
       };
 
-      theme = "Tokyo Night Storm";
+      themeFile = "tokyo_night_storm";
     };
   };
 }
