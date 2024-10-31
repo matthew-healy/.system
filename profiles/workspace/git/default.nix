@@ -23,7 +23,7 @@ let root-cfg = config; in {
             ''git for-each-ref --format="%(refname:short)" refs/heads/''
             ''egrep -v "(^\*|^main$|^master$|^trunk$|^dev$|^develop$)"''
             ''grep -v "^spike/"''
-            "grep -v $(git branch --show-current)"
+            ''grep -Fvx "$$(git branch --show-current)"''
             "xargs git branch -D"
           ];
           # Fetch a remote branch & then start an interactive rebase on top of it.
