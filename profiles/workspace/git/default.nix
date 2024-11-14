@@ -23,8 +23,8 @@ let root-cfg = config; in {
             ''git for-each-ref --format="%(refname:short)" refs/heads/''
             ''egrep -v "(^\*|^main$|^master$|^trunk$|^dev$|^develop$)"''
             ''grep -v "^spike/"''
-            ''grep -Fvx "$$(git branch --show-current)"''
-            "xargs git branch -D"
+            ''grep -Fvx "$(git branch --show-current)"''
+            "xargs --no-run-if-empty git branch -D"
           ];
           # Fetch a remote branch & then start an interactive rebase on top of it.
           sync = bashExpr ''
