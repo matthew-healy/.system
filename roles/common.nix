@@ -28,6 +28,7 @@
     cargo
     direnv
     firefox
+    librewolf
     fonts
     helix
     keychain
