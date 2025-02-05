@@ -10,7 +10,7 @@
     #       the autostartPrograms based on defaultApplications. this works for
     #       now though.
     home.file =
-      let autostartPrograms = [ pkgs._1password-gui pkgs.kitty pkgs.firefox ]; in
+      let autostartPrograms = [ pkgs._1password-gui pkgs.kitty pkgs.librewolf ]; in
       builtins.listToAttrs (map
         (pkg:
           {
