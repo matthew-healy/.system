@@ -74,6 +74,7 @@
                 {
                   home-manager.useGlobalPkgs = true;
                   home-manager.useUserPackages = true;
+                  home-manager.backupFileExtension = "backup";
                 }
                 { nixpkgs.pkgs = pkgs; }
                 (import (./machines + "/${name}"))
