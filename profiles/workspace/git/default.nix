@@ -82,6 +82,8 @@ let root-cfg = config; in {
       extraConfig = {
         apply.whitespace = "fix";
 
+        branch.sort = "committerdate";
+
         color = {
           branch = {
             current = "yellow reverse";
@@ -105,6 +107,10 @@ let root-cfg = config; in {
           ui = "auto";
         };
 
+        column.ui = "auto";
+
+        commit.verbose = true;
+
         core = {
           excludesFile = "~/.gitignore";
 
@@ -115,11 +121,13 @@ let root-cfg = config; in {
 
         gpg.format = "ssh";
 
-        help.autocorrect = 1;
+        help.autocorrect = "prompt";
 
         init.defaultBranch = "trunk";
 
         pull.rebase = true;
+
+        rebase.autoSquash = true;
       };
     };
   };
