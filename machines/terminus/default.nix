@@ -1,4 +1,4 @@
-{ config, inputs, ... }: {
+{ config, inputs, pkgs, ... }: {
   imports = [
     ./hardware-configuration.nix
     inputs.self.nixosRoles.home
@@ -11,6 +11,7 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    extraPackages = [ pkgs.nvidia-vaapi-driver ];
   };
 
   # TODO: should this be in the hardware config?
@@ -19,9 +20,10 @@
   hardware.nvidia = {
     modesetting.enable = true;
 
-    powerManagement.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
 
-    open = false;
+    open = true;
 
     # Enables the settings menu (accessed via `nvidia-settings`).
     nvidiaSettings = true;
