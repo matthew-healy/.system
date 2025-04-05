@@ -5,6 +5,6 @@
   };
 
   home-manager.users.matthew = {
-    home.packages = [ pkgs.ark ];
+    home.packages = [ pkgs.kdePackages.ark ];
   };
 }
