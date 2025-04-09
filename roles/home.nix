@@ -1,6 +1,18 @@
 { inputs, ... }: {
   imports = with inputs.self.nixosProfiles; [
-    ./common.nix
+    core
+    terminal
     gamedev
+    social
+    rust-dev
+
+    user
+    application-setup
+    hardware
+    packages
+    ark
+    firefox
+    librewolf
+    ncmpcpp
   ];
 }

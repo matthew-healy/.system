@@ -1,10 +1,20 @@
 { inputs, ... }: {
   imports = with inputs.self.nixosProfiles; [
-    ./common.nix
+    core
+    terminal
+    rust-dev
+
+    user
+    application-setup
+    hardware
+    packages
+    ark
+    firefox
+    librewolf
+    ncmpcpp
     chromium
     slack
     password-quality
-    unpackaged-programs
     autolock
   ];
 }
