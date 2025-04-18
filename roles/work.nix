@@ -1,7 +1,6 @@
 { inputs, ... }: {
   imports = with inputs.self.nixosProfiles; [
     core
-    terminal
     rust-dev
 
     user

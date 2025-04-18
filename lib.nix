@@ -1,5 +1,6 @@
-{ lib, ... }: with builtins; let
-  findModules = dir:
+lib: {
+  # Used to automatically load modules from a default.nix
+  findModules = dir: with builtins;
     concatLists (attrValues (mapAttrs
       (name: type:
         if name == "default.nix" then [ ]
@@ -8,6 +9,4 @@
         else if (readDir (dir + "/${name}")) ? "default.nix" then [ (dir + "/${name}") ]
         else (findModules (dir + "/${name}")))
       (readDir dir)));
-  imports = findModules ./.;
-in
-{ inherit imports; }
+}
