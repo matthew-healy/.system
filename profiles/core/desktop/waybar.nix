@@ -158,6 +158,6 @@ in
       '';
     };
 
-    wayland.windowManager.hyprland.settings.exec-once = [ pkgs.waybar.name ];
+    wayland.windowManager.hyprland.settings.exec-once = [ pkgs.waybar.pname ];
   };
 }
