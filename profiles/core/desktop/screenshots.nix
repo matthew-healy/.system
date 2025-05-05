@@ -3,7 +3,7 @@
     home.packages = [ pkgs.hyprshot ];
 
     wayland.windowManager.hyprland = {
-      settings."$screenshot" = "HYPRSHOT_DIR=~/Pictures/screenshots ${pkgs.hyprshot.pname}";
+      settings."$screenshot" = "HYPRSHOT_DIR=~/Pictures/screenshots ${pkgs.hyprshot.pname} --freeze";
 
       extraConfig = ''
         bind = $mod, S, submap, 
