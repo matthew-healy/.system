@@ -3,7 +3,7 @@
     home.packages = [ pkgs.bemoji pkgs.wl-clipboard pkgs.wtype ];
 
     wayland.windowManager.hyprland.settings.bind = [
-      "$mod SHIFT, E, exec, bemoji -c"
+      "$mod SHIFT, E, exec, pidof bemoji || bemoji -c"
     ];
   };
 }
