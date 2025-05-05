@@ -110,6 +110,10 @@ in
         rounding = 5;
       };
 
+      animation = [
+        "borderangle, 0"
+      ];
+
       monitor = [
         "eDP-1, 1920x1200@60, 0x0, 1"
       ];
