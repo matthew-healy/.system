@@ -10,6 +10,8 @@
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
+  # Ensure WiFi has automatic power saving enabled.
+  boot.extraModprobeConfig = "options iwlwifi power_save=1";
 
   fileSystems."/" =
     {
