@@ -1,6 +1,28 @@
 { pkgs, ... }:
 let
   inherit (pkgs.desktop-config) font wallpaper colours;
+
+  cmd = {
+    hyprctl = "${pkgs.hyprland}/bin/hyprctl";
+    loginctl = "${pkgs.systemd}/bin/loginctl";
+    jq = "${pkgs.jq}/bin/jq";
+  };
+
+  onLidClosed = pkgs.writeShellScript "on-lid-closed.sh" ''
+    #!/user/bin/env bash
+    set -euo pipefail
+
+    ACTIVE_COUNT=$(${cmd.hyprctl} monitors -j | ${cmd.jq} '[.[] | select(.disabled == false)] | length]')
+    ONLY_ACTIVE=$(${cmd.hyprctl} monitors -j | ${cmd.jq} -r '.[] | select(.disabled == false) | .name')
+
+    if [[ "$ACTIVE_COUNT" == "1" && "$ONLY_ACTIVE" == "$LAPTOP" ]]; then
+      echo "[$(date '+%Y-%m-%d %H:%M:%S')] Lid closed in laptop-only mode: locking."
+      ${cmd.loginctl} lock-session
+      ${cmd.hyprctl} dispatch dpms off
+    else
+      echo "[$(date '+%Y-%m-%d %H:%M:%S')] Lid closed with external display attached: ignoring."
+    fi
+  '';
 in
 {
   # Without pam, hyprlock can't actually unlock the session.
@@ -81,7 +103,7 @@ in
       bind = [ "$mod, ESCAPE, exec, $lockscreen" ];
 
       bindl = [
-        ",switch:on:Lid Switch, exec, loginctl lock-session & hyperctl dispatch dpms off"
+        ",switch:on:Lid Switch, exec, ${onLidClosed}"
         ",switch:off:Lid Switch, exec, hyperctl dispatch dpms on"
       ];
     };
