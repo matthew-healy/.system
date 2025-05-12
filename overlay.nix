@@ -13,6 +13,13 @@ inputs: final: prev: {
       '';
   });
 
+  slack = prev.slack.overrideAttrs (old: {
+    nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ prev.makeWrapper ];
+    postInstall = (old.postInstall or "") + ''
+      wrapProgram $out/bin/slack --set NIXOS_OZONE_WL 1
+    '';
+  });
+
   # is an overlay really the best way to do this?
   desktop-config = {
     colours = {
