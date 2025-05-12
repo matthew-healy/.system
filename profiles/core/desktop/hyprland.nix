@@ -114,10 +114,6 @@ in
         "borderangle, 0"
       ];
 
-      monitor = [
-        "eDP-1, 1920x1200@60, 0x0, 1"
-      ];
-
       misc = {
         middle_click_paste = false;
         disable_hyprland_logo = true;

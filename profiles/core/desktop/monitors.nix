@@ -1,100 +1,52 @@
-{ pkgs, ... }:
-let
-  ports = {
-    laptop = "eDP-1";
-    hdmi = "HDMI-A-1";
-  };
-
-  monitors = {
-    dell = {
-      make = "Dell Inc.";
-      model = "DELL S3221QS";
-    };
-  };
-
-  cmd = {
-    hyprctl = "${pkgs.hyprland}/bin/hyprctl";
-    jq = "${pkgs.jq}/bin/jq";
-    sha256sum = "${pkgs.coreutils}/bin/sha256sum";
-  };
-
-  detectMonitors = pkgs.writeShellScript "detect-monitors.sh" ''
-    #!/user/bin/env bash
-    set -euo pipefail
-
-    log() {
-      echo "[$(date '+%Y-%m-%d %H:%M;%S')] $*" >> ~/.cache/detect-monitors.log
-    }
-
-    readarray -t MONITORS < <(${cmd.hyprctl} monitors -j | jq -r '.[].name')
-
-    apply_laptop_only() {
-      log "Applying laptop-only layout"
-      ${cmd.hyprctl} keyword monitor "${ports.laptop},preferred,0x0,1"
-      ${cmd.hyprctl} keyword monitor "${ports.hdmi},disable"
-    }
-
-    apply_dell_4k() {
-      log "Applying Dell 4k layout"
-      ${cmd.hyprctl} keyword monitor "${ports.laptop},disable"
-      ${cmd.hyprctl} keyword monitor "${ports.hdmi},3840x2160@60,0x0,1"
-    }
-
-    MONITORS_JSON=$(${cmd.hyprctl} monitors -j)
-
-    if ! ${cmd.jq} -e ".[] | select(.name == ${ports.hdmi})" <<< "$MONITORS_JSON" > /dev/null; then
-      apply_laptop_only
-      exit
-    fi
-
-    MAKE=$(${cmd.jq} -r ".[] | select(.name == ${ports.hdmi}) | .make" <<< "$MONITORS_JSON")
-    MODEL=$(${cmd.jq} -r ".[] | select(.name == ${ports.hdmi}) | .model" <<< "$MONITORS_JSON")
-
-    if [[ "$MAKE" == "${monitors.dell.make}" && "$MODEL" == "${monitors.dell.model}" ]]; then
-      apply_dell_4k
-    else
-      log "Unknown make & model: $MAKE, $MODEL"
-      apply_laptop_only
-    fi
-  '';
-
-  detectMonitorsWatcher = pkgs.writeShellScript "detect-monitors-watcher.sh" ''
-    #!/user/bin/env bash
-    set -euo pipefail
-
-    get_monitor_state_hash() {
-      ${cmd.hyprctl} monitors -j | ${cmd.jq} -S 'map({make,model,name,disabled})' | ${cmd.sha256sum} | awk '{print $1}'
-    }
-
-    PREV_HASH=""
-
-    while true; do
-      CURRENT_HASH=$(get_monitor_state_hash)
-      if [[ "$CURRENT_HASH" != "$PREV_HASH" ]]; then
-        echo "[$(date '+%Y-%m-%d %H:%M:%S')] Monitor layout detected. Applying config..."
-        ${detectMonitors}
-      fi
-      sleep 2
-    done
-  '';
-in
+{ ... }:
 {
-  environment.systemPackages = with pkgs; [ hyprland jq ];
+  home-manager.users.matthew = {
+    services.kanshi = {
+      enable = true;
+      systemdTarget = "xdg-desktop-portal-hyprland.service";
 
-  systemd.user.services.detect-monitors-watcher = {
-    description = "Detect monitors & update layout";
+      profiles = {
+        laptop-only = {
+          outputs = [
+            {
+              criteria = "eDP-1";
+              mode = "1920x1080@60Hz";
+              scale = 1.0;
+            }
+          ];
+        };
 
-    wantedBy = [ "default.target" ];
+        hdmi-only = {
+          outputs = [
+            {
+              criteria = "Dell Inc. DELL S3221QS HDMI-A-1";
+              mode = "3840x2160@60Hz";
+              scale = 1.0;
+            }
+            {
+              criteria = "eDP-1";
+              status = "disable";
+            }
+          ];
+        };
 
-    serviceConfig = {
-      ExecStart = "${detectMonitorsWatcher}";
-      Restart = "always";
+        laptop-and-usbc = {
+          outputs = [
+            {
+              criteria = "USB-C-1";
+              mode = "5120x2880@60Hz";
+              scale = 2.0;
+              position = "0,0";
+            }
+            {
+              criteria = "eDP-1";
+              mode = "1920x1080@60Hz";
+              scale = 1.0;
+              position = "320,1440";
+            }
+          ];
+        };
+      };
     };
-  };
-
-  home-manager.users.matthew.wayland.windowManager.hyprland.settings = {
-    exec-once = [
-      "${detectMonitors}"
-    ];
   };
 }
