@@ -8,5 +8,5 @@
   # Ergodox
   hardware.keyboard.zsa.enable = true;
 
-  environment.systemPackages = with pkgs; [ wally-cli ];
+  environment.systemPackages = with pkgs; [ keymapp ];
 }
