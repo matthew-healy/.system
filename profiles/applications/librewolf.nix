@@ -1,7 +1,7 @@
 { inputs, pkgs, ... }: {
   defaultApplications.browser = {
-    cmd = "${pkgs.firefox}/bin/firefox";
-    desktop = "firefox";
+    cmd = "${pkgs.librewolf}/bin/librewolf";
+    desktop = "librewolf";
   };
 
   home-manager.users.matthew.programs.librewolf = {
