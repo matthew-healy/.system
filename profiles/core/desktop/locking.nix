@@ -1,28 +1,6 @@
 { pkgs, ... }:
 let
   inherit (pkgs.desktop-config) font wallpaper colours;
-
-  cmd = {
-    hyprctl = "${pkgs.hyprland}/bin/hyprctl";
-    loginctl = "${pkgs.systemd}/bin/loginctl";
-    jq = "${pkgs.jq}/bin/jq";
-  };
-
-  onLidClosed = pkgs.writeShellScript "on-lid-closed.sh" ''
-    #!/user/bin/env bash
-    set -euo pipefail
-
-    ACTIVE_COUNT=$(${cmd.hyprctl} monitors -j | ${cmd.jq} '[.[] | select(.disabled == false)] | length]')
-    ONLY_ACTIVE=$(${cmd.hyprctl} monitors -j | ${cmd.jq} -r '.[] | select(.disabled == false) | .name')
-
-    if [[ "$ACTIVE_COUNT" == "1" && "$ONLY_ACTIVE" == "$LAPTOP" ]]; then
-      echo "[$(date '+%Y-%m-%d %H:%M:%S')] Lid closed in laptop-only mode: locking."
-      ${cmd.loginctl} lock-session
-      ${cmd.hyprctl} dispatch dpms off
-    else
-      echo "[$(date '+%Y-%m-%d %H:%M:%S')] Lid closed with external display attached: ignoring."
-    fi
-  '';
 in
 {
   # Without pam, hyprlock can't actually unlock the session.
@@ -51,23 +29,22 @@ in
 
         input-field = {
           monitor = "";
-          size = "45%, 5%";
+          size = "30%, 4%";
           outline_thickness = 2;
-          dots_size = 0.2;
+          dots_size = "0.2";
           dots_spacing = 0.35;
           dots_center = true;
           outer_color = "rgba(0, 0, 0, 0)";
           inner_color = "rgba(0, 0, 0, 0.2)";
           font_color = textColor;
           font_family = font;
-          font-size = 18;
           rounding = -1;
           check_color = "rgb(${colours.lavender})";
           fail_color = "rgb(${colours.red})";
-          placeholder_text = ''<i>👋 hello, $USER</i>'';
+          placeholder_text = ''<i>👋 hello, $USER </i>'';
           fade_on_empty = false;
           hide_input = false;
-          position = "0, -50";
+          position = "0, -6%";
           halign = "center";
           valign = "center";
         };
@@ -77,9 +54,9 @@ in
             monitor = "";
             text = ''cmd[update:1000] echo "$(date +"%A, %B %d")"'';
             color = textColor;
-            font_size = 18;
+            font_size = "30";
             font_family = font;
-            position = "0, 90";
+            position = "0, 6%";
             halign = "center";
             valign = "center";
           }
@@ -87,9 +64,9 @@ in
             monitor = "";
             text = ''cmd[update:1000] echo "$(date +"%-H:%M")"'';
             color = textColor;
-            font_size = 45;
+            font_size = "60";
             font_family = font;
-            position = "0, 30";
+            position = "0, 0";
             halign = "center";
             valign = "center";
           }
@@ -103,8 +80,8 @@ in
       bind = [ "$mod, ESCAPE, exec, $lockscreen" ];
 
       bindl = [
-        ",switch:on:Lid Switch, exec, ${onLidClosed}"
-        ",switch:off:Lid Switch, exec, hyperctl dispatch dpms on"
+        ",switch:on:Lid Switch, exec, hyprctl dispatch dpms off eDP-1"
+        ",switch:off:Lid Switch, exec, hyprctl dispatch dpms on eDP-1"
       ];
     };
 

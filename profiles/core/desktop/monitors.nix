@@ -1,52 +1,59 @@
 { ... }:
+let
+  monitors = {
+    laptop = "eDP-1";
+    hdmi = "HDMI-A-1";
+    dp3 = "DP-3";
+    dp4 = "DP-4";
+  };
+in
 {
-  home-manager.users.matthew = {
-    services.kanshi = {
-      enable = true;
-      systemdTarget = "xdg-desktop-portal-hyprland.service";
+  home-manager.users.matthew.services.kanshi = {
+    enable = true;
 
-      profiles = {
-        laptop-only = {
-          outputs = [
-            {
-              criteria = "eDP-1";
-              mode = "1920x1080@60Hz";
-              scale = 1.0;
-            }
-          ];
-        };
-
-        hdmi-only = {
-          outputs = [
-            {
-              criteria = "Dell Inc. DELL S3221QS HDMI-A-1";
-              mode = "3840x2160@60Hz";
-              scale = 1.0;
-            }
-            {
-              criteria = "eDP-1";
-              status = "disable";
-            }
-          ];
-        };
-
-        laptop-and-usbc = {
-          outputs = [
-            {
-              criteria = "USB-C-1";
-              mode = "5120x2880@60Hz";
-              scale = 2.0;
-              position = "0,0";
-            }
-            {
-              criteria = "eDP-1";
-              mode = "1920x1080@60Hz";
-              scale = 1.0;
-              position = "320,1440";
-            }
-          ];
-        };
-      };
-    };
+    settings = [
+      {
+        profile.name = "laptop-only";
+        profile.outputs = [
+          {
+            criteria = monitors.laptop;
+            mode = "1920x1200@60Hz";
+            scale = 1.0;
+            status = "enable";
+          }
+        ];
+      }
+      {
+        profile.name = "hdmi-only";
+        profile.outputs = [
+          {
+            criteria = monitors.hdmi;
+            mode = "3840x2160@60Hz";
+            scale = 1.0;
+          }
+        ];
+      }
+      {
+        profile.name = "laptop-and-usbc";
+        profile.outputs = [
+          {
+            criteria = monitors.dp3;
+            mode = "5120x2880@60Hz";
+            scale = 2.0;
+            position = "0,0";
+          }
+          {
+            criteria = monitors.dp4;
+            status = "disable";
+          }
+          {
+            criteria = monitors.laptop;
+            mode = "1920x1200@60Hz";
+            scale = 1.0;
+            position = "320,1440";
+          }
+        ];
+      }
+    ];
   };
 }
