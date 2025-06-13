@@ -11,6 +11,7 @@
       powertop
       tldr
       nil
+      upterm
       zip
     ];
 }
