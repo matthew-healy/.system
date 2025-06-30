@@ -1,10 +1,6 @@
 { config, lib, ... }:
 {
-  options.monitors.is-laptop = lib.mkOption {
-    type = lib.types.bool;
-    default = false;
-    description = "Is this machine a laptop?";
-  };
+  imports = [ ./options.nix ];
 
   config =
     let
@@ -16,7 +12,7 @@
       };
     in
     {
-      home-manager.users.matthew.services.kanshi = lib.mkIf config.monitors.is-laptop {
+      home-manager.users.matthew.services.kanshi = lib.mkIf config.display.is-laptop {
         enable = true;
 
         settings = [

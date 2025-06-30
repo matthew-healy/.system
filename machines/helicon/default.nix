@@ -10,5 +10,5 @@
 
   boot.kernelParams = [ "i915.force_probe=46a8" ];
 
-  monitors.is-laptop = true;
+  display.is-laptop = true;
 }

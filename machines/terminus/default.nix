@@ -31,5 +31,5 @@
     package = config.boot.kernelPackages.nvidiaPackages.beta;
   };
 
-  monitors.is-laptop = false;
+  display.is-laptop = false;
 }
