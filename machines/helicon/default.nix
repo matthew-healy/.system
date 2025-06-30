@@ -1,4 +1,4 @@
-{ config, inputs, ... }: {
+{ inputs, ... }: {
   imports = [
     ./hardware-configuration.nix
     inputs.self.nixosRoles.home
@@ -9,4 +9,6 @@
   boot.loader.systemd-boot.enable = true;
 
   boot.kernelParams = [ "i915.force_probe=46a8" ];
+
+  monitors.is-laptop = true;
 }

@@ -25,4 +25,6 @@
   # start. If it ever starts playing up, look here:
   # https://nixos.wiki/wiki/Intel_Graphics
   boot.kernelParams = [ "i915.force_probe=46a8" ];
+
+  monitors.is-laptop = true;
 }
