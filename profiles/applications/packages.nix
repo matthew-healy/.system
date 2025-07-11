@@ -13,6 +13,7 @@
       tldr
       nil
       upterm
+      vlc
       zip
     ];
 }
