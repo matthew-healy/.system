@@ -12,6 +12,7 @@
     ark
     firefox
     librewolf
+    qutebrowser
     ncmpcpp
   ];
 }
