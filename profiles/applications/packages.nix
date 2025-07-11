@@ -4,6 +4,7 @@
       asunder
       bat
       curl
+      dig
       jq
       linux-wifi-hotspot
       # lld, but wrapped to set the rpath correctly
