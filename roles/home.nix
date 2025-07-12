@@ -14,5 +14,6 @@
     librewolf
     qutebrowser
     ncmpcpp
+    calibre
   ];
 }
