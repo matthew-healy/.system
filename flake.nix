@@ -16,6 +16,11 @@
     };
 
     nur.url = "github:nix-community/NUR";
+
+    helix = {
+      url = "github:helix-editor/helix?ref=refs/tags/25.07";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs@{ self, nixpkgs, nixpkgs-stable, ... }:

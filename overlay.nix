@@ -1,6 +1,8 @@
 inputs: final: prev: {
   # declare any overlays here to make them available via pkgs everywhere else
 
+  helix = inputs.helix.packages.${prev.system}.default;
+
   # source: https://github.com/NixOS/nixpkgs/issues/222043 (from xavier's config)
   signal-desktop = prev.signal-desktop.overrideAttrs (old: {
     preFixup =
