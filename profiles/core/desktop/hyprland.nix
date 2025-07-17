@@ -1,7 +1,4 @@
-{ pkgs, ... }:
-let
-  inherit (pkgs.desktop-config) colours;
-in
+{ config, pkgs, ... }:
 {
   programs.hyprland.enable = true;
 
@@ -103,7 +100,7 @@ in
       general = {
         gaps_in = 5;
         gaps_out = 5;
-        "col.active_border" = "rgb(${colours.lavender})";
+        "col.active_border" = "rgb(${config.colours.lavender})";
       };
 
       decoration = {

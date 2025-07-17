@@ -1,7 +1,4 @@
 { config, pkgs, lib, ... }:
-let
-  inherit (pkgs.desktop-config) font wallpaper colours;
-in
 {
   imports = [ ./options.nix ];
 
@@ -13,7 +10,7 @@ in
       programs.hyprlock = {
         enable = true;
 
-        settings = let textColor = "rgb(${colours.text})"; in {
+        settings = let textColor = "rgb(${config.colours.text})"; in {
           general = {
             hide_cursor = true;
             ignore_empty_input = true;
@@ -22,7 +19,7 @@ in
 
           background = {
             monitor = "";
-            path = wallpaper.fullPath;
+            path = config.wallpaper.fullPath;
             blur_passes = 2;
             contrast = 1;
             brightness = 0.5;
@@ -40,10 +37,10 @@ in
             outer_color = "rgba(0, 0, 0, 0)";
             inner_color = "rgba(0, 0, 0, 0.2)";
             font_color = textColor;
-            font_family = font;
+            font_family = config.font;
             rounding = -1;
-            check_color = "rgb(${colours.lavender})";
-            fail_color = "rgb(${colours.red})";
+            check_color = "rgb(${config.colours.lavender})";
+            fail_color = "rgb(${config.colours.red})";
             placeholder_text = ''<i>👋 hello, $USER </i>'';
             fade_on_empty = false;
             hide_input = false;
@@ -58,7 +55,7 @@ in
               text = ''cmd[update:1000] echo "$(date +"%A, %B %d")"'';
               color = textColor;
               font_size = "30";
-              font_family = font;
+              font_family = config.font;
               position = "0, 6%";
               halign = "center";
               valign = "center";
@@ -68,7 +65,7 @@ in
               text = ''cmd[update:1000] echo "$(date +"%-H:%M")"'';
               color = textColor;
               font_size = "60";
-              font_family = font;
+              font_family = config.font;
               position = "0, 0";
               halign = "center";
               valign = "center";

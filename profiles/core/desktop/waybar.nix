@@ -1,7 +1,4 @@
-{ pkgs, ... }:
-let
-  inherit (pkgs.desktop-config) font;
-in
+{ config, pkgs, ... }:
 {
   home-manager.users.matthew = {
     programs.waybar = {
@@ -87,7 +84,7 @@ in
       style = ''
         * {
           font-size: 15px;
-          font-family: ${font}, monospace;
+          font-family: ${config.font}, monospace;
         }
 
         window#waybar {

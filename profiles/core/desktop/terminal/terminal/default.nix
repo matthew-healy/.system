@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   defaultApplications.term = {
     cmd = "${pkgs.kitty}/bin/kitty";
     desktop = "term";
@@ -18,7 +18,7 @@
         cursor_shape = "block";
         shell_integration = "no-cursor";
         font_size = "13.0";
-        font_family = pkgs.desktop-config.font;
+        font_family = config.font;
         background_opacity = "0.95";
       };
 

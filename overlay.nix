@@ -21,22 +21,4 @@ inputs: final: prev: {
       wrapProgram $out/bin/slack --set NIXOS_OZONE_WL 1
     '';
   });
-
-  # is an overlay really the best way to do this?
-  # TODO: no, replace with options in relevant config(s)
-  desktop-config = {
-    colours = {
-      base = "303446";
-      text = "c6d0f5";
-      lavender = "babbf1";
-      red = "e78284";
-    };
-
-    font = "FiraCode Nerd Font";
-
-    wallpaper = rec {
-      image = ".config/wallpaper/city.webp";
-      fullPath = "/home/matthew/${image}";
-    };
-  };
 }

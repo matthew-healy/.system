@@ -1,7 +1,4 @@
-{ pkgs, ... }:
-let
-  inherit (pkgs.desktop-config) colours font;
-in
+{ config, pkgs, ... }:
 {
   home-manager.users.matthew = {
     programs.wofi = {
@@ -16,12 +13,12 @@ in
       };
 
       style = ''
-        @define-color	base  #${colours.base};
-        @define-color	text  #${colours.text};
-        @define-color	lavender  #${colours.lavender};
+        @define-color	base  #${config.colours.base};
+        @define-color	text  #${config.colours.text};
+        @define-color	lavender  #${config.colours.lavender};
 
         * {
-          font-family: ${font}, monospace;
+          font-family: ${config.font}, monospace;
           font-size: 15px;
         }
 
