@@ -23,6 +23,7 @@ inputs: final: prev: {
   });
 
   # is an overlay really the best way to do this?
+  # TODO: no, replace with options in relevant config(s)
   desktop-config = {
     colours = {
       base = "303446";
