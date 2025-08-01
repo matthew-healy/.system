@@ -12,6 +12,27 @@
       };
     in
     {
+      home-manager.users.matthew.programs.bash.shellAliases =
+        let
+          hd = "hyprctl dispatch";
+          stmts = es: builtins.concatStringsSep "; " es;
+        in
+        {
+          "monitors-home" = stmts [
+            "for i in {1..4}"
+            "do ${hd} moveworkspacetomonitor $i ${monitors.hdmi}"
+            "done"
+          ];
+
+          "monitors-work" = stmts [
+            "${hd} workspace 5"
+            "${hd} moveworkspacetomonitor 5 ${monitors.laptop}"
+            "for i in {1..4}"
+            "do ${hd} moveworkspacetomonitor $i ${monitors.dp3}"
+            "done"
+          ];
+        };
+
       home-manager.users.matthew.services.kanshi = lib.mkIf config.display.is-laptop {
         enable = true;
 
