@@ -25,27 +25,27 @@
   options.colours = lib.mkOption {
     type = with lib.types; attrsOf str;
     default = {
-      background = "271b3a";
-      foreground = "ede8f7";
-      cursor = "ccbfe8";
-      black = "412f5d";
-      red = "edb4aa";
-      green = "90d89f";
-      yellow = "dcc27a";
-      blue = "b4c3ed";
-      magenta = "e2b2dd";
-      cyan = "81d3e2";
-      white = "ccbfe8";
-      brightBlack = "755aa1";
-      brightRed = "f4d1ca";
-      brightGreen = "b2ebbd";
-      brightYellow = "edd9a4";
-      brightBlue = "d0daf4";
-      brightMagenta = "edcfea";
-      brightCyan = "ade6f0";
-      brightWhite = "f7f5fc";
+      background = "251f30";
+      foreground = "ece9f3";
+      cursor = "cac2db";
+      black = "3d354e";
+      red = "dc9b90";
+      green = "84bf90";
+      yellow = "c3ac70";
+      blue = "9cacdd";
+      magenta = "d099ca";
+      cyan = "73bbc8";
+      white = "cac2db";
+      brightBlack = "706289";
+      brightRed = "e7b7ae";
+      brightGreen = "9dd4a7";
+      brightYellow = "d7c28a";
+      brightBlue = "b6c3e8";
+      brightMagenta = "ddb5d9";
+      brightCyan = "8fd1dd";
+      brightWhite = "f7f6fa";
     };
-    description = "https://rootloops.sh?sugar=9&colors=6&sogginess=5&flavor=2&fruit=10&milk=1";
+    description = "https://rootloops.sh/?sugar=8&colors=5&sogginess=3&flavor=2&fruit=10&milk=1";
   };
 
   options.font = lib.mkOption {
