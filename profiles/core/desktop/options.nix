@@ -55,7 +55,7 @@
   };
 
   options.wallpaper = lib.mkOption {
-    type = with lib.types; attrsOf string;
+    type = with lib.types; attrsOf str;
     default = rec {
       image = ".config/wallpaper/city.webp";
       fullPath = "/home/matthew/${image}";
