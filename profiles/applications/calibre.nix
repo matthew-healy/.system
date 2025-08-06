@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{ pkgs, ... }: {
   home-manager.users.matthew.home.packages = [
     pkgs.calibre
   ];
