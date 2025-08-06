@@ -23,7 +23,7 @@
   };
 
   options.font = lib.mkOption {
-    type = lib.types.string;
+    type = lib.types.str;
     default = "FiraCode Nerd Font";
     description = "The default font.";
   };
