@@ -10,7 +10,7 @@
       programs.hyprlock = {
         enable = true;
 
-        settings = let textColor = "rgb(${config.colours.text})"; in {
+        settings = let textColor = "rgb(${config.colours.foreground})"; in {
           general = {
             hide_cursor = true;
             ignore_empty_input = true;
@@ -39,7 +39,7 @@
             font_color = textColor;
             font_family = config.font;
             rounding = -1;
-            check_color = "rgb(${config.colours.lavender})";
+            check_color = "rgb(${config.colours.foreground})";
             fail_color = "rgb(${config.colours.red})";
             placeholder_text = ''<i>👋 hello, $USER </i>'';
             fade_on_empty = false;

@@ -100,7 +100,7 @@
       general = {
         gaps_in = 5;
         gaps_out = 5;
-        "col.active_border" = "rgb(${config.colours.lavender})";
+        "col.active_border" = "rgb(${config.colours.foreground})";
       };
 
       decoration = {

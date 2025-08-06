@@ -13,9 +13,9 @@
       };
 
       style = ''
-        @define-color	base  #${config.colours.base};
-        @define-color	text  #${config.colours.text};
-        @define-color	lavender  #${config.colours.lavender};
+        @define-color	base  #${config.colours.background};
+        @define-color	text  #${config.colours.foreground};
+        @define-color	image  #${config.colours.foreground};
 
         * {
           font-family: ${config.font}, monospace;
@@ -55,7 +55,7 @@
 
         #input image {
           border: none;
-          color: @lavender;
+          color: @image;
         }
 
         #text {
@@ -77,12 +77,12 @@
 
         #entry arrow {
           border: none;
-          color: @lavender;
+          color: @image;
         }
 
         #entry:selected {
           background-color: @base;
-          border: 0.11em solid @lavender;
+          border: 0.11em solid @image;
           border-radius: 0.3em
         }
       '';
