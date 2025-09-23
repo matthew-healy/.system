@@ -6,8 +6,8 @@
   services.desktopManager.gnome.enable = true;
 
   environment.gnome.excludePackages = [ pkgs.gnome-console ];
-
-  home-manager.users.matthew.services.gnome-keyring.enable = true;
+  # turn this off so it doesn't clash with ssh-agent.nix
+  services.gnome.gcr-ssh-agent.enable = false;
 
   programs.dconf = {
     enable = true;

@@ -97,7 +97,6 @@
         "cat" = "${pkgs.bat}/bin/bat";
       };
 
-      profileExtra = builtins.readFile ./bash_profile;
       bashrcExtra = builtins.readFile ./bashrc;
     };
 
