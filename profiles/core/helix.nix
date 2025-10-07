@@ -60,6 +60,10 @@
           "d" = "delete_selection_noyank";
           "A-c" = "change_selection";
           "c" = "change_selection_noyank";
+
+          space = {
+            "b" = ":sh git blame -L %{cursor_line},%{cursor_line} %{buffer_name}";
+          };
         };
       };
     };
