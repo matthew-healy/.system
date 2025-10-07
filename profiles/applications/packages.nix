@@ -9,6 +9,7 @@
       linux-wifi-hotspot
       # lld, but wrapped to set the rpath correctly
       llvmPackages.bintools
+      psmisc
       powertop
       tldr
       nil

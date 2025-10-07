@@ -155,6 +155,9 @@
       '';
     };
 
-    wayland.windowManager.hyprland.settings.exec-once = [ pkgs.waybar.pname ];
+    wayland.windowManager.hyprland.settings = {
+      bind = [ "$mod, W,exec, killall -SIGUSR1 .waybar-wrapped" ];
+      exec-once = [ pkgs.waybar.pname ];
+    };
   };
 }
