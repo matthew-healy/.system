@@ -53,7 +53,7 @@
                 criteria = monitors.laptop;
                 mode = "1920x1200@60Hz";
                 scale = 1.0;
-                position = "320,1440";
+                position = "960,2160";
               }
             ];
           }
