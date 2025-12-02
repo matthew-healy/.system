@@ -11,6 +11,15 @@
   };
   services.blueman.enable = true;
 
+  services.pipewire.wireplumber.extraConfig."10-bluez" = {
+    "monitor.bluez.properties" = {
+      # Supposedly a better-quality audio codec.
+      "bluez5.enable-sbc-xq" = true;
+      # Before this headphone audio would break whenever the mic was in use.
+      "bluez5.enable-msbc" = true;
+    };
+  };
+
   home-manager.users.matthew.programs.bash =
     let
       trackpad = "64:B0:A6:E6:CB:5B";
